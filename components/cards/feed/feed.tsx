@@ -58,12 +58,12 @@ export const Feed: React.FC<FeedProps> = ({ feed }) => {
             ></iframe>
           ) : (
             <Image
-              src={feed.image || ''}
-              width={300}
+              src={feed.image ?? ''}
+              width={500}
               height={500}
-              className="my-1 rounded-xl object-cover"
+              // quality={}
+              className="my-1 w-full rounded-xl object-cover"
               alt={feed.title}
-              layout="responsive"
             />
           )}
           <div className="mt-5 flex justify-start text-muted-foreground">
