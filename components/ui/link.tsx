@@ -19,7 +19,7 @@ export const Link: React.FC<LinkProps> = ({
       href={href}
       {...rest}
       target={target}
-      className="border-b-4 border-background font-normal text-main hover:border-main"
+      className="border-b-4 border-transparent font-normal text-main hover:border-main"
     >
       {children}
     </NextLink>

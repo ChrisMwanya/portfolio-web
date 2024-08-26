@@ -5,7 +5,7 @@ import { Link } from '@/components/ui/link';
 
 const About = () => {
   return (
-    <div className="mt-5 text-secondary-foreground">
+    <>
       <div className="flex items-center gap-2 text-foreground">
         <H2>Mbote! 👋</H2> <span>(Hello in Lingala)</span>
       </div>
@@ -51,7 +51,7 @@ const About = () => {
       </p>
 
       <p className="my-4">Stay inspired!</p>
-    </div>
+    </>
   );
 };
 

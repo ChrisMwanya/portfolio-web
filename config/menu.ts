@@ -8,10 +8,10 @@ export const menuItems: MenuItemProps[] = [
     title: 'About',
     href: '/about',
   },
-  {
-    title: 'My Reads',
-    href: '/blog',
-  },
+  // {
+  //   title: 'My Reads',
+  //   href: '/blog',
+  // },
   {
     title: 'Projects',
     href: '/projects',
