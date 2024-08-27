@@ -16,7 +16,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ title, href }) => {
   return (
     <Link
       href={href}
-      className={`w-full flex-shrink-0 flex-grow basis-0 cursor-pointer py-1 text-center text-muted-foreground hover:bg-primary-foreground`}
+      className={`w-full flex-shrink-0 flex-grow basis-0 cursor-pointer py-4 text-center text-muted-foreground hover:bg-primary-foreground`}
     >
       <span className={`border-b-4 pb-2 ${activeClassName}`}> {title}</span>
     </Link>

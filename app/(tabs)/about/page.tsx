@@ -23,7 +23,7 @@ const About = () => {
       </p>
       <div className="my-10 h-full w-full">
         <Image
-          src={'/assets/images/aboutImage.jpg'}
+          src={'/assets/images/aboutImage.webp'}
           width={300}
           height={500}
           className="my-1 rounded-xl object-cover"
