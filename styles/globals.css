@@ -68,9 +68,7 @@
   }
 }
 
-body {
-  /* background: url('../public/assets/logo-black.svg') no-repeat fixed;
-  background-size: 40rem;
-  background-position-x: 110% ;
-  background-position-y: bottom ; */
+::selection {
+  background-color: #9c6609;
+  color: white;
 }

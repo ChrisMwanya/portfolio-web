@@ -14,14 +14,16 @@ export const ProjectComponent: React.FC<ProjectType> = ({
       <p className="mb-4 text-sm text-muted-foreground">{description}</p>
       {technos &&
         technos.length > 0 &&
-        technos.map((techno) => (
-          <span
-            key={techno}
-            className="mr-2 rounded-full bg-muted px-2 py-1 text-xs"
-          >
-            {techno}
-          </span>
-        ))}
+        technos.map((techno) => {
+          return (
+            <span
+              key={techno?.attributes?.name}
+              className="mr-2 rounded-full bg-muted px-2 py-1 text-xs"
+            >
+              {techno?.attributes?.name}
+            </span>
+          );
+        })}
       <div className="mt-5">
         {link && <LinkIcon href={link} iconClassName="icon-[ph--link-bold]" />}
       </div>

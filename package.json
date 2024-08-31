@@ -12,9 +12,11 @@
     "prettier": "prettier --write */**/*.{js,jsx,json,ts,tsx,scss,css,md}",
     "prepare": "husky ",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "genql:type": "genql --endpoint http://localhost:1337/graphql --output ./generated"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.5",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-hover-card": "^1.1.1",
@@ -27,6 +29,7 @@
     "clsx": "^2.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "graphql": "^16.9.0",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.7",
     "lucide-react": "^0.417.0",
