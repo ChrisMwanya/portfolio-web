@@ -3,6 +3,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { ProjectComponent } from '@/components/cards/project/project';
 import { GET_PROJECTS } from './getData';
+import type { ProjectEntity } from '@/graphql/graphql';
 
 const Project = () => {
   const { loading, error, data: projects } = useQuery(GET_PROJECTS);
@@ -19,13 +20,13 @@ const Project = () => {
         {`Feel free to check them out and let me know what you think! 😊😎 `}
       </div>
       <div className="mt-10 gap-y-4">
-        {projects.projects.data?.map(({ attributes }) => (
+        {projects.projects.data?.map(({ attributes }: ProjectEntity) => (
           <ProjectComponent
             key={attributes?.title ?? undefined}
             title={attributes?.title ?? null}
             description={attributes?.description ?? null}
             link={attributes?.link ?? null}
-            technos={attributes?.technos?.data}
+            technos={attributes?.technos}
           />
         ))}
       </div>

@@ -13,7 +13,7 @@
     "prepare": "husky ",
     "test": "jest",
     "test:watch": "jest --watch",
-    "genql:type": "genql --endpoint http://localhost:1337/graphql --output ./generated"
+    "generate:type": "npx graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.11.5",
@@ -44,6 +44,9 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@0no-co/graphqlsp": "^1.12.13",
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/schema-ast": "^4.1.0",
     "@iconify/json": "^2.2.235",
     "@iconify/tailwind": "^1.1.2",
     "@testing-library/jest-dom": "^6.4.8",

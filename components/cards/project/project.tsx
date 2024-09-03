@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProjectType } from './index';
+import { Project as ProjectType } from '@/graphql/graphql';
 import LinkIcon from '@/components/icon-link/link-icon';
 
 export const ProjectComponent: React.FC<ProjectType> = ({
@@ -12,9 +12,9 @@ export const ProjectComponent: React.FC<ProjectType> = ({
     <div className="rounded-lg px-3 py-6 hover:bg-primary-foreground">
       <h2 className="mb-3 text-xl font-semibold">{title} ✨</h2>
       <p className="mb-4 text-sm text-muted-foreground">{description}</p>
-      {technos &&
-        technos.length > 0 &&
-        technos.map((techno) => {
+      {technos?.data &&
+        technos.data.length > 0 &&
+        technos.data.map((techno) => {
           return (
             <span
               key={techno?.attributes?.name}

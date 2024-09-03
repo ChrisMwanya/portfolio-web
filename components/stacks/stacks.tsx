@@ -10,6 +10,7 @@ import {
   HoverCardTrigger,
 } from '../ui/hover-card';
 import { Button } from '../ui/button';
+import { TechnoEntity } from '@/graphql/graphql';
 
 const Stacks = ({ className }: StacksProps) => {
   const { loading, error, data } = useQuery(GET_TECHNOS);
@@ -19,7 +20,7 @@ const Stacks = ({ className }: StacksProps) => {
 
   return (
     <div className={className}>
-      {data?.technos.data.map(({ attributes }) => (
+      {data?.technos.data.map(({ attributes }: TechnoEntity) => (
         <HoverCard key={attributes?.name}>
           <HoverCardTrigger>
             <Button variant="link" className="px-0">

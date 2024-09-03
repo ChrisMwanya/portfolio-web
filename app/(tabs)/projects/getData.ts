@@ -9,6 +9,13 @@ export const GET_PROJECTS = gql`
           title
           description
           link
+          technos {
+            data {
+              attributes {
+                name
+              }
+            }
+          }
         }
       }
     }

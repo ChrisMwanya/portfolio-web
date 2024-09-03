@@ -1,3 +1,5 @@
 {
-  "cSpell.words": ["technos"]
+  "cSpell.words": ["technos"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
