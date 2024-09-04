@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { DateTime } from 'luxon';
 import { FeedProps } from './type';
 import { Pin, Dot, Heart } from 'lucide-react';
@@ -9,6 +11,7 @@ export const Feed: React.FC<FeedProps> = ({ feed }) => {
   const dateFormated = DateTime.fromFormat(feed.date, 'yyyy-MM-dd').toFormat(
     'LLL yyyy',
   );
+  const [showImage, setShowImage] = useState<boolean>(false);
 
   return (
     <article className="grid grid-cols-[1fr_10fr] gap-x-2 gap-y-4 rounded-lg px-3 py-6 hover:bg-primary-foreground">
@@ -61,9 +64,9 @@ export const Feed: React.FC<FeedProps> = ({ feed }) => {
               src={feed.image ?? ''}
               width={500}
               height={500}
-              // quality={}
-              className="my-1 w-full rounded-xl object-cover"
+              className="my-1 w-full cursor-pointer rounded-xl object-cover"
               alt={feed.title}
+              onClick={() => setShowImage(!showImage)}
             />
           )}
           <div className="mt-5 flex justify-start text-muted-foreground">

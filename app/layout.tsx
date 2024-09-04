@@ -21,7 +21,7 @@ import { Navbar } from '@/components/navbar/navbar';
 import { menuItems } from '@/config/menu';
 import Footer from '@/components/footer/footer';
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: React.PropsWithChildren<{ children: React.ReactNode }>) {
   return (
