@@ -12,5 +12,10 @@ export type CustomButtonLinkProps = {
 
 export type IconButtonProps = {
   children: React.ReactNode;
+  type: string;
+};
+
+export type IconButtonLinkProps = {
+  children: React.ReactNode;
   link: string;
 };

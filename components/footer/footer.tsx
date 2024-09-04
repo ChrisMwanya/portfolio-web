@@ -1,19 +1,19 @@
 import React from 'react';
 
 import { Github, Linkedin } from 'lucide-react';
-import { IconButton } from '../custom-button';
+import { IconButtonLink } from '../custom-button';
 
 const Footer = () => {
   return (
     <footer className="py-10 text-center">
       <div className="mb-3 flex justify-center gap-3">
-        <IconButton link="https://www.linkedin.com/in/christianmwanya/">
+        <IconButtonLink link="https://www.linkedin.com/in/christianmwanya/">
           <Linkedin className="h-[1.2rem] w-[1.2rem]" />
-        </IconButton>
+        </IconButtonLink>
 
-        <IconButton link="https://github.com/ChrisMwanya">
+        <IconButtonLink link="https://github.com/ChrisMwanya">
           <Github className="h-[1.2rem] w-[1.2rem]" />
-        </IconButton>
+        </IconButtonLink>
       </div>
       <div>
         <p className="text-xs text-muted-foreground">

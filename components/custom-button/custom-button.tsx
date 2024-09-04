@@ -3,6 +3,7 @@ import {
   CustomButtonProps,
   CustomButtonLinkProps,
   IconButtonProps,
+  IconButtonLinkProps,
 } from './type';
 import { Button } from '../ui/button';
 import Link from 'next/link';
@@ -29,12 +30,27 @@ export const CustomButton = ({ children }: CustomButtonProps) => {
   );
 };
 
-export const IconButton = ({ children, link }: IconButtonProps) => {
+export const IconButtonLink = ({ children, link }: IconButtonLinkProps) => {
   return (
-    <Button variant="link" size="icon" className="hover:bg-primary-foreground">
+    <Button
+      variant="link"
+      size="icon"
+      className="hover:bg-primary-foreground hover:text-yellow-50"
+    >
       <Link href={link} target="_blank">
         {children}
       </Link>
+    </Button>
+  );
+};
+
+export const IconButton = ({ children }: IconButtonProps) => {
+  return (
+    <Button
+      size="icon"
+      className="rounded-full hover:bg-main hover:text-yellow-50"
+    >
+      {children}
     </Button>
   );
 };

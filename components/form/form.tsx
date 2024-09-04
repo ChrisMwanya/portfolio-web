@@ -1,29 +1,31 @@
 'use client';
+
+import { IconButton } from '../custom-button';
+
 export const LoginForm = () => {
-  const handleGitHubLogin = () => {
-    // Handle GitHub login logic here
-  };
-
-  const handleGoogleLogin = () => {
-    // Handle Google login logic here
-  };
-
   return (
-    <div className="flex items-center justify-center">
-      <h1 className="mb-4 font-bold">Login</h1>
-
-      <button
-        onClick={handleGitHubLogin}
-        className="mb-2 rounded-md bg-gray-800 px-4 py-2 text-white"
-      >
-        Login with GitHub
-      </button>
-      <button
-        onClick={handleGoogleLogin}
-        className="rounded-md bg-red-500 px-4 py-2 text-white"
-      >
-        Login with Google
-      </button>
+    <div className="mt-6 flex flex-col items-center">
+      <h6 className="font-semibold">Login </h6>
+      <p className="mb-4 text-sm">Just log in and leave a quick note.</p>
+      <div className="flex items-center gap-2 rounded-lg border-2 border-muted-foreground p-4">
+        <form action="" method="post">
+          <IconButton type="">
+            <span className="icon-[bi--linkedin] text-2xl" />
+          </IconButton>
+        </form>
+        <form action="" method="post">
+          {' '}
+          <IconButton type="">
+            <span className="icon-[bi--google] text-2xl" />
+          </IconButton>
+        </form>
+        <form action="" method="post">
+          {' '}
+          <IconButton type="">
+            <span className="icon-[bi--github] text-2xl" />
+          </IconButton>
+        </form>
+      </div>
     </div>
   );
 };
