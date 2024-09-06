@@ -1,13 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
 import { Pin, Dot } from 'lucide-react';
 import { ProfileAvatar } from '@/components/avatar';
-import { LoginForm } from '@/components/form';
+import { CommentForm, LoginForm } from '@/components/form';
+
 export const AddComment: React.FC = () => {
   const dateFormated = DateTime.local().toFormat('DD ');
   const [showForm, setShowForm] = useState<boolean>(false);
+  const [showCommentForm, setShowCommentForm] = useState<boolean>(false);
+
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    if (user) {
+      setShowCommentForm(true);
+      setShowForm(true);
+    }
+  }, []);
 
   return (
     <article className="grid grid-cols-[1fr_10fr] gap-x-2 gap-y-4 rounded-lg px-3 py-6 hover:bg-primary-foreground">
@@ -35,16 +45,23 @@ export const AddComment: React.FC = () => {
 
         <div className="my-5 h-full w-full">
           <div className="rounded-md bg-muted p-5">
-            <div
-              className="flex cursor-pointer items-center justify-between"
+            <button
+              className="flex w-full cursor-pointer items-center justify-between"
               onClick={() => setShowForm(!showForm)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  setShowForm(!showForm);
+                }
+              }}
             >
               <p>Guestbook form</p>
               <div>
                 <span className="icon-[ep--arrow-down-bold] text-2xl text-main" />
               </div>
-            </div>
-            {showForm && <LoginForm />}
+            </button>
+            {showForm && (
+              <>{showCommentForm ? <CommentForm /> : <LoginForm />}</>
+            )}
           </div>
         </div>
       </div>
