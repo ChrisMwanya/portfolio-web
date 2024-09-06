@@ -1,5 +1,4 @@
 /* eslint-disable */
-import { DocumentTypeDecoration } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -235,11 +234,18 @@ export type GenericMorph =
 
 export type Guestbook = {
   __typename?: 'Guestbook';
+  avatar?: Maybe<Scalars['String']['output']>;
+  company?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  firstName?: Maybe<Scalars['String']['output']>;
+  isValidated?: Maybe<Scalars['Boolean']['output']>;
+  lastName?: Maybe<Scalars['String']['output']>;
   message?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  role?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  users_permissions_user?: Maybe<UsersPermissionsUserEntityResponse>;
+  website?: Maybe<Scalars['String']['output']>;
 };
 
 export type GuestbookEntity = {
@@ -261,20 +267,34 @@ export type GuestbookEntityResponseCollection = {
 
 export type GuestbookFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<GuestbookFiltersInput>>>;
+  avatar?: InputMaybe<StringFilterInput>;
+  company?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
+  email?: InputMaybe<StringFilterInput>;
+  firstName?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
+  isValidated?: InputMaybe<BooleanFilterInput>;
+  lastName?: InputMaybe<StringFilterInput>;
   message?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<GuestbookFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<GuestbookFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  role?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
-  users_permissions_user?: InputMaybe<UsersPermissionsUserFiltersInput>;
+  website?: InputMaybe<StringFilterInput>;
 };
 
 export type GuestbookInput = {
+  avatar?: InputMaybe<Scalars['String']['input']>;
+  company?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']['input']>;
+  isValidated?: InputMaybe<Scalars['Boolean']['input']>;
+  lastName?: InputMaybe<Scalars['String']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  users_permissions_user?: InputMaybe<Scalars['ID']['input']>;
+  role?: InputMaybe<Scalars['String']['input']>;
+  website?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type I18NLocale = {

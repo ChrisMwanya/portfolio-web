@@ -1,33 +1,33 @@
 import React from 'react';
 import { DateTime } from 'luxon';
 import { Dot, Link } from 'lucide-react';
-import type { CommentType } from './type';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-export const Comment: React.FC<CommentType> = ({
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Guestbook } from '@/graphql/graphql';
+
+export const Comment: React.FC<Guestbook> = ({
   company,
   message,
-  fullName,
+  firstName,
+  lastName,
   website,
   avatar,
   role,
-  date,
+  createdAt,
 }) => {
-  const dateFormated = DateTime.fromFormat(date, 'yyyy-MM-dd').toFormat(
-    'LLL yyyy',
-  );
+  const dateFormated = DateTime.fromISO(createdAt ?? '').toFormat('DD');
 
   return (
     <article className="grid grid-cols-[1fr_10fr] gap-x-2 gap-y-4 rounded-lg px-3 py-6 hover:bg-primary-foreground">
       <div className="flex justify-end">
         <Avatar>
-          <AvatarImage src={avatar} className="object-cover" />
+          <AvatarImage src={avatar ?? ''} className="object-cover" />
           <AvatarFallback>UR</AvatarFallback>
         </Avatar>
       </div>
       <div>
         <div className="flex items-center">
-          <h3 className="text-lg font-semibold">{fullName}</h3>
+          <h3 className="text-lg font-semibold">{`${firstName} ${lastName}`}</h3>
           <Dot
             fontWeight={900}
             size={'2rem'}
@@ -45,7 +45,7 @@ export const Comment: React.FC<CommentType> = ({
           </div>
           <div className="mt-5 flex justify-end text-muted-foreground">
             <a
-              href={website}
+              href={website ?? ''}
               target="_blank"
               rel="noreferrer"
               title="Link"

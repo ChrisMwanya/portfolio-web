@@ -187,11 +187,18 @@ input FloatFilterInput {
 union GenericMorph = EmailDesignerEmailTemplate | Feed | Guestbook | I18NLocale | Project | RoleProject | Techno | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
 
 type Guestbook {
+  avatar: String
+  company: String
   createdAt: DateTime
+  email: String
+  firstName: String
+  isValidated: Boolean
+  lastName: String
   message: String
   publishedAt: DateTime
+  role: String
   updatedAt: DateTime
-  users_permissions_user: UsersPermissionsUserEntityResponse
+  website: String
 }
 
 type GuestbookEntity {
@@ -210,20 +217,34 @@ type GuestbookEntityResponseCollection {
 
 input GuestbookFiltersInput {
   and: [GuestbookFiltersInput]
+  avatar: StringFilterInput
+  company: StringFilterInput
   createdAt: DateTimeFilterInput
+  email: StringFilterInput
+  firstName: StringFilterInput
   id: IDFilterInput
+  isValidated: BooleanFilterInput
+  lastName: StringFilterInput
   message: StringFilterInput
   not: GuestbookFiltersInput
   or: [GuestbookFiltersInput]
   publishedAt: DateTimeFilterInput
+  role: StringFilterInput
   updatedAt: DateTimeFilterInput
-  users_permissions_user: UsersPermissionsUserFiltersInput
+  website: StringFilterInput
 }
 
 input GuestbookInput {
+  avatar: String
+  company: String
+  email: String
+  firstName: String
+  isValidated: Boolean
+  lastName: String
   message: String
   publishedAt: DateTime
-  users_permissions_user: ID
+  role: String
+  website: String
 }
 
 type I18NLocale {

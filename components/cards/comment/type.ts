@@ -1,9 +1,10 @@
 export type CommentType = {
-  message: string;
-  date: string;
-  fullName: string;
-  avatar: string;
-  email: string;
+  message?: string | null;
+  createdAt?: string;
+  firstName?: string;
+  lastName?: string;
+  avatar?: string;
+  email?: string;
   company?: string;
   website?: string;
   role?: string;
