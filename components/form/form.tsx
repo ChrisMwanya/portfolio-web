@@ -33,6 +33,7 @@ const formSchema = z.object({
       message: 'Role name must be at least 2 characters.',
     })
     .nullable(),
+  website: z.string().url().nullable(),
 });
 
 export const LoginForm = () => {
@@ -88,12 +89,9 @@ export const CommentForm = () => {
                   onChange={field.onChange}
                 />
               </FormControl>
-              {/* <FormDescription className="text-xs">
-                {
-                  "We're so excited to bring you this new comment on this page after moderation!"
-                }{' '}
-                {':)'}
-              </FormDescription> */}
+              <FormDescription className="text-xs">
+                {'We will display your company name on your comment.'}
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -108,13 +106,22 @@ export const CommentForm = () => {
               <FormControl>
                 <Input placeholder="Ex: Trainer" onChange={field.onChange} />
               </FormControl>
-              {/* <FormDescription className="text-xs">
-                {
-                  "We're so excited to bring you this new comment on this page after moderation!"
-                }{' '}
-                {':)'}
-              </FormDescription> */}
-              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="website"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Your website or company website</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Ex: https:www.company.com"
+                  onChange={field.onChange}
+                />
+              </FormControl>
             </FormItem>
           )}
         />
