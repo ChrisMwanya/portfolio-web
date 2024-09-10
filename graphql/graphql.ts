@@ -238,10 +238,9 @@ export type Guestbook = {
   company?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   email?: Maybe<Scalars['String']['output']>;
-  firstName?: Maybe<Scalars['String']['output']>;
   isValidated?: Maybe<Scalars['Boolean']['output']>;
-  lastName?: Maybe<Scalars['String']['output']>;
   message?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   role?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
@@ -271,11 +270,10 @@ export type GuestbookFiltersInput = {
   company?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   email?: InputMaybe<StringFilterInput>;
-  firstName?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   isValidated?: InputMaybe<BooleanFilterInput>;
-  lastName?: InputMaybe<StringFilterInput>;
   message?: InputMaybe<StringFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<GuestbookFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<GuestbookFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
@@ -288,10 +286,9 @@ export type GuestbookInput = {
   avatar?: InputMaybe<Scalars['String']['input']>;
   company?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
-  firstName?: InputMaybe<Scalars['String']['input']>;
   isValidated?: InputMaybe<Scalars['Boolean']['input']>;
-  lastName?: InputMaybe<Scalars['String']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   role?: InputMaybe<Scalars['String']['input']>;
   website?: InputMaybe<Scalars['String']['input']>;

@@ -44,11 +44,12 @@ export const IconButtonLink = ({ children, link }: IconButtonLinkProps) => {
   );
 };
 
-export const IconButton = ({ children }: IconButtonProps) => {
+export const IconButton = ({ children, onClick }: IconButtonProps) => {
   return (
     <Button
       size="icon"
       className="rounded-full hover:bg-main hover:text-yellow-50"
+      onClick={onClick}
     >
       {children}
     </Button>

@@ -8,8 +8,7 @@ import { Guestbook } from '@/graphql/graphql';
 export const Comment: React.FC<Guestbook> = ({
   company,
   message,
-  firstName,
-  lastName,
+  name,
   website,
   avatar,
   role,
@@ -27,7 +26,7 @@ export const Comment: React.FC<Guestbook> = ({
       </div>
       <div>
         <div className="flex items-center">
-          <h3 className="text-lg font-semibold">{`${firstName} ${lastName}`}</h3>
+          <h3 className="text-lg font-semibold">{name}</h3>
           <Dot
             fontWeight={900}
             size={'2rem'}

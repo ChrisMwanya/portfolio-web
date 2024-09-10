@@ -1,7 +1,9 @@
 'use client';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { useSession, signIn } from 'next-auth/react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -15,7 +17,9 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import LinkIcon from '../icon-link/link-icon';
+import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
+import { IconButton } from '../custom-button';
+import useAuthStore from '@/store/auth';
 
 const formSchema = z.object({
   comment: z.string().min(10, {
@@ -42,24 +46,22 @@ export const LoginForm = () => {
       <h6 className="font-semibold">Login </h6>
       <p className="mb-4 text-sm">Just log in and leave a quick note.</p>
       <div className="flex items-center gap-4 rounded-lg border-2 border-muted-foreground p-4">
-        <LinkIcon
-          href="http://localhost:1337/api/connect/github"
-          iconClassName="icon-[bi--google] text-2xl"
-        />
-        <LinkIcon
-          href="http://localhost:1337/api/connect/github"
-          iconClassName="icon-[bi--linkedin] text-2xl"
-        />
-        <LinkIcon
-          href="http://localhost:1337/api/connect/github"
-          iconClassName="icon-[bi--github] text-2xl"
-        />
+        <IconButton onClick={() => signIn('google')} type="">
+          <span className="icon-[bi--google] text-2xl"></span>
+        </IconButton>
+        <IconButton onClick={() => signIn('linkedin')} type="">
+          <span className="icon-[bi--linkedin] text-2xl"></span>
+        </IconButton>
+        <IconButton onClick={() => signIn('github')} type="">
+          <span className="icon-[bi--github] text-2xl"></span>
+        </IconButton>
       </div>
     </div>
   );
 };
 
 export const CommentForm = () => {
+  const { data: session } = useSession();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -72,10 +74,32 @@ export const CommentForm = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    alert(values.role);
+    const token = useAuthStore.getState().jwt;
+
+    const data = {
+      ...values,
+      ...{ ...session?.user, avatar: session?.user?.image },
+    };
+    delete data.image;
+    console.log('Data', { token, data });
   }
   return (
     <Form {...form}>
+      <div className="mb-6 flex flex-col items-center gap-y-2 text-center">
+        <Avatar>
+          <AvatarImage src={session?.user?.image ?? ''} />
+          <AvatarFallback>
+            {session?.user?.name ? session?.user?.name[0] : ''}
+          </AvatarFallback>
+        </Avatar>
+        <h6>
+          Hi <span className="font-semibold">{session?.user?.name}!</span>{' '}
+        </h6>
+        <p className="text-xs">
+          Your name, your avatar and all infos you provide will be display with
+          your comment
+        </p>
+      </div>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}

@@ -191,10 +191,9 @@ type Guestbook {
   company: String
   createdAt: DateTime
   email: String
-  firstName: String
   isValidated: Boolean
-  lastName: String
   message: String
+  name: String
   publishedAt: DateTime
   role: String
   updatedAt: DateTime
@@ -221,11 +220,10 @@ input GuestbookFiltersInput {
   company: StringFilterInput
   createdAt: DateTimeFilterInput
   email: StringFilterInput
-  firstName: StringFilterInput
   id: IDFilterInput
   isValidated: BooleanFilterInput
-  lastName: StringFilterInput
   message: StringFilterInput
+  name: StringFilterInput
   not: GuestbookFiltersInput
   or: [GuestbookFiltersInput]
   publishedAt: DateTimeFilterInput
@@ -238,10 +236,9 @@ input GuestbookInput {
   avatar: String
   company: String
   email: String
-  firstName: String
   isValidated: Boolean
-  lastName: String
   message: String
+  name: String
   publishedAt: DateTime
   role: String
   website: String

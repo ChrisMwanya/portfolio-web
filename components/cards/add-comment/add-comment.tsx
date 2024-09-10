@@ -4,20 +4,26 @@ import React, { useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
 import { Pin, Dot } from 'lucide-react';
 import { ProfileAvatar } from '@/components/avatar';
-import { CommentForm, LoginForm } from '@/components/form';
+import { CommentForm, LoginForm } from '@/components/forms';
+import { useSession } from 'next-auth/react';
+import { login } from '@/lib/auth';
 
 export const AddComment: React.FC = () => {
   const dateFormated = DateTime.local().toFormat('DD ');
   const [showForm, setShowForm] = useState<boolean>(false);
   const [showCommentForm, setShowCommentForm] = useState<boolean>(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
-    if (user) {
+    login(
+      process.env.NEXT_PUBLIC_STRAPI_USER ?? 'strapi',
+      process.env.NEXT_PUBLIC_STRAPI_PASSWORD ?? 'strapi',
+    );
+    if (session) {
       setShowCommentForm(true);
       setShowForm(true);
     }
-  }, []);
+  }, [session]);
 
   return (
     <article className="grid grid-cols-[1fr_10fr] gap-x-2 gap-y-4 rounded-lg px-3 py-6 hover:bg-primary-foreground">

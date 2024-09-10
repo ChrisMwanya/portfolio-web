@@ -7,8 +7,7 @@ export const GET_COMMENTS = gql`
         id
         attributes {
           message
-          firstName
-          lastName
+          name
           avatar
           email
           company
