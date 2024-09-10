@@ -49,12 +49,6 @@ export const LoginForm = () => {
       <h6 className="font-semibold">Login </h6>
       <p className="mb-4 text-sm">Just log in and leave a quick note.</p>
       <div className="flex items-center gap-4 rounded-lg border-2 border-muted-foreground p-4">
-        <IconButton onClick={() => signIn('google')} type="">
-          <span className="icon-[bi--google] text-2xl"></span>
-        </IconButton>
-        <IconButton onClick={() => signIn('linkedin')} type="">
-          <span className="icon-[bi--linkedin] text-2xl"></span>
-        </IconButton>
         <IconButton onClick={() => signIn('github')} type="">
           <span className="icon-[bi--github] text-2xl"></span>
         </IconButton>
