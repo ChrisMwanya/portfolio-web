@@ -21,6 +21,7 @@ import { Navbar } from '@/components/navbar/navbar';
 import { menuItems } from '@/config/menu';
 import Footer from '@/components/footer/footer';
 import { SessionProvider } from 'next-auth/react';
+import { Toaster } from '@/components/ui/toaster';
 
 export default function RootLayout({
   children,
@@ -137,7 +138,9 @@ export default function RootLayout({
                   <Navbar menuItems={menuItems} />
                 </div>
                 {children}
+
                 <Footer />
+                <Toaster />
               </div>
             </div>
           </div>

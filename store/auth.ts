@@ -18,7 +18,7 @@ interface AuthState {
 
 const useAuthStore = create<AuthState>((set) => ({
   user: null,
-  jwt: localStorage.getItem('jwt') ?? null,
+  jwt: null,
   login: (user: User, jwt: string) => {
     localStorage.setItem('jwt', jwt);
 
@@ -27,6 +27,10 @@ const useAuthStore = create<AuthState>((set) => ({
   logout: () => {
     localStorage.removeItem('jwt');
     set({ user: null, jwt: null });
+  },
+  getJWT: () => {
+    const token = localStorage.getItem('jwt');
+    return token;
   },
   restoreAuth: () => {
     const token = localStorage.getItem('jwt');

@@ -7,7 +7,7 @@ import { Guestbook } from '@/graphql/graphql';
 
 export const Comment: React.FC<Guestbook> = ({
   company,
-  message,
+  comment,
   name,
   website,
   avatar,
@@ -40,7 +40,7 @@ export const Comment: React.FC<Guestbook> = ({
 
         <div className="my-5 h-full w-full">
           <div className="rounded-md bg-muted p-5">
-            <p>{message}</p>
+            <p>{comment}</p>
           </div>
           <div className="mt-5 flex justify-end text-muted-foreground">
             <a

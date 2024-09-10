@@ -1,3 +1,3 @@
-export type FormType = {
-  name: string;
+export type CommentFormType = {
+  showForm: (bool: boolean) => void;
 };

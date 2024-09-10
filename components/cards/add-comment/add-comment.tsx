@@ -66,7 +66,13 @@ export const AddComment: React.FC = () => {
               </div>
             </button>
             {showForm && (
-              <>{showCommentForm ? <CommentForm /> : <LoginForm />}</>
+              <>
+                {showCommentForm ? (
+                  <CommentForm showForm={setShowForm} />
+                ) : (
+                  <LoginForm />
+                )}
+              </>
             )}
           </div>
         </div>

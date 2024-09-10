@@ -235,11 +235,11 @@ export type GenericMorph =
 export type Guestbook = {
   __typename?: 'Guestbook';
   avatar?: Maybe<Scalars['String']['output']>;
+  comment?: Maybe<Scalars['String']['output']>;
   company?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   email?: Maybe<Scalars['String']['output']>;
   isValidated?: Maybe<Scalars['Boolean']['output']>;
-  message?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   role?: Maybe<Scalars['String']['output']>;
@@ -267,12 +267,12 @@ export type GuestbookEntityResponseCollection = {
 export type GuestbookFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<GuestbookFiltersInput>>>;
   avatar?: InputMaybe<StringFilterInput>;
+  comment?: InputMaybe<StringFilterInput>;
   company?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   email?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   isValidated?: InputMaybe<BooleanFilterInput>;
-  message?: InputMaybe<StringFilterInput>;
   name?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<GuestbookFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<GuestbookFiltersInput>>>;
@@ -284,10 +284,10 @@ export type GuestbookFiltersInput = {
 
 export type GuestbookInput = {
   avatar?: InputMaybe<Scalars['String']['input']>;
+  comment?: InputMaybe<Scalars['String']['input']>;
   company?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   isValidated?: InputMaybe<Scalars['Boolean']['input']>;
-  message?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   role?: InputMaybe<Scalars['String']['input']>;

@@ -1,10 +1,10 @@
 'use client';
-
+import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useSession, signIn } from 'next-auth/react';
-
+import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -19,7 +19,10 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
 import { IconButton } from '../custom-button';
-// import useAuthStore from '@/store/auth';
+import useAuthStore from '@/store/auth';
+import { client } from '@/lib/graphql';
+import { CREATE_COMMENT } from './data';
+import { CommentFormType } from './type';
 
 const formSchema = z.object({
   comment: z.string().min(10, {
@@ -60,9 +63,11 @@ export const LoginForm = () => {
   );
 };
 
-export const CommentForm = () => {
+export const CommentForm: React.FC<CommentFormType> = ({ showForm }) => {
   const { data: session } = useSession();
-  // 1. Define your form.
+  const [showLoader, setShowLoader] = useState<boolean>(false);
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -70,17 +75,44 @@ export const CommentForm = () => {
     },
   });
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    // const token = useAuthStore.getState().jwt;
-
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const token = useAuthStore.getState().jwt;
+    setShowLoader(true);
     const data = {
       ...values,
       ...{ ...session?.user, avatar: session?.user?.image },
     };
     delete data.image;
+
+    const { data: dataRespond, errors } = await client.mutate({
+      mutation: CREATE_COMMENT,
+      variables: { data },
+
+      context: {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      },
+    });
+
+    if (dataRespond?.createGuestbook) {
+      form.reset();
+      toast({
+        title: 'Guestbook',
+        description: 'Thank you!',
+        variant: 'default',
+      });
+      showForm(false);
+    }
+
+    errors &&
+      toast({
+        title: 'Error',
+        description: 'Une erreur est survenue',
+        variant: 'destructive',
+      });
+
+    setShowLoader(false);
   }
   return (
     <Form {...form}>
@@ -167,7 +199,7 @@ export const CommentForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        {showLoader ? 'Creating...' : <Button type="submit">Submit</Button>}
       </form>
     </Form>
   );

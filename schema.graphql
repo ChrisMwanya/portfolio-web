@@ -188,11 +188,11 @@ union GenericMorph = EmailDesignerEmailTemplate | Feed | Guestbook | I18NLocale 
 
 type Guestbook {
   avatar: String
+  comment: String
   company: String
   createdAt: DateTime
   email: String
   isValidated: Boolean
-  message: String
   name: String
   publishedAt: DateTime
   role: String
@@ -217,12 +217,12 @@ type GuestbookEntityResponseCollection {
 input GuestbookFiltersInput {
   and: [GuestbookFiltersInput]
   avatar: StringFilterInput
+  comment: StringFilterInput
   company: StringFilterInput
   createdAt: DateTimeFilterInput
   email: StringFilterInput
   id: IDFilterInput
   isValidated: BooleanFilterInput
-  message: StringFilterInput
   name: StringFilterInput
   not: GuestbookFiltersInput
   or: [GuestbookFiltersInput]
@@ -234,10 +234,10 @@ input GuestbookFiltersInput {
 
 input GuestbookInput {
   avatar: String
+  comment: String
   company: String
   email: String
   isValidated: Boolean
-  message: String
   name: String
   publishedAt: DateTime
   role: String
