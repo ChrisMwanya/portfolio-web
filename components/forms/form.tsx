@@ -19,7 +19,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
 import { IconButton } from '../custom-button';
-import useAuthStore from '@/store/auth';
+// import useAuthStore from '@/store/auth';
 
 const formSchema = z.object({
   comment: z.string().min(10, {
@@ -74,14 +74,13 @@ export const CommentForm = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    const token = useAuthStore.getState().jwt;
+    // const token = useAuthStore.getState().jwt;
 
     const data = {
       ...values,
       ...{ ...session?.user, avatar: session?.user?.image },
     };
     delete data.image;
-    console.log('Data', { token, data });
   }
   return (
     <Form {...form}>
