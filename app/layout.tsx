@@ -8,7 +8,7 @@ import { ModeToggle } from '@/components/mode-toggle';
 import NextLink from 'next/link';
 import '@/styles/globals.css';
 import { ThemeProvider } from '@/theme-provider';
-import MyAvatar from '@/public/assets/images/profil.webp';
+
 import Avatar from '@/components/avatar/avatar';
 import TitleH1 from '@/components/ui/title-h1';
 import { Avatar as AvatarIcon, AvatarImage } from '@/components/ui/avatar';
@@ -52,7 +52,7 @@ export default function RootLayout({
                     iconClassName="icon-[fluent--mail-edit-32-filled] text-2xl"
                   />
                   <LinkIcon
-                    href="https://wa.me/+243906920283"
+                    href="https://wa.me/+243906320283"
                     iconClassName="icon-[ri--whatsapp-fill] text-2xl"
                   />
                   <ModeToggle />
@@ -63,8 +63,7 @@ export default function RootLayout({
                   <div className="min-sm:h-20 size-full h-48 bg-[url('/assets/images/fordT.webp')] bg-cover bg-center bg-no-repeat max-md:h-20" />
                   <div className="flex justify-between p-5 max-sm:px-0">
                     <Avatar
-                      imageUrl={MyAvatar}
-                      altText="Avatar Christian"
+                      // altText="Avatar Christian"
                       className="-mt-20 h-44 w-44 rounded-full border-4 border-foreground max-sm:-mt-9 max-sm:h-36 max-sm:w-36"
                     />
                     <CustomButtonLink

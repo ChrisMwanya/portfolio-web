@@ -1,30 +1,27 @@
 import React from 'react';
 import type { AvatarProps } from './type';
-import Image from 'next/image';
+
 import {
   Avatar as Profile,
   AvatarFallback,
   AvatarImage,
 } from '@/components/ui/avatar';
 
-const Avatar = ({ imageUrl, className, altText }: AvatarProps) => {
+const Avatar = ({ className }: AvatarProps) => {
   return (
     <div className={`z-0 ${className}`}>
-      <Image
-        src={imageUrl ?? ''}
-        className="h-full w-full rounded-full object-cover"
-        alt={altText}
-      />
+      <ProfileAvatar className="h-full w-full" />
     </div>
   );
 };
 
-export const ProfileAvatar = () => {
+export const ProfileAvatar = ({ className }: { className?: string }) => {
   return (
-    <Profile>
+    <Profile className={className}>
       <AvatarImage
         src={'/assets/images/profil.webp'}
         className="object-cover"
+        sizes="lg"
       />
       <AvatarFallback>CM</AvatarFallback>
     </Profile>
