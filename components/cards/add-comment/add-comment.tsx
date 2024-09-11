@@ -21,7 +21,7 @@ export const AddComment: React.FC = () => {
     );
     if (session) {
       setShowCommentForm(true);
-      setShowForm(true);
+      // setShowForm(true);
     }
   }, [session]);
 

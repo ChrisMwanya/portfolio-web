@@ -2,7 +2,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export const ProjectSkeleton = () => {
   return (
-    <div className="max-full mt-10 animate-pulse rounded-lg bg-primary-foreground p-6 shadow-md">
+    <div className="max-full mt-10 animate-pulse rounded-lg bg-primary-foreground p-6">
       <Skeleton className="mb-2 h-6 w-[150px]" />
 
       <div className="mb-4 space-y-2">

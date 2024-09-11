@@ -21,7 +21,7 @@ export const Comment: React.FC<Guestbook> = ({
       <div className="flex justify-end">
         <Avatar>
           <AvatarImage src={avatar ?? ''} className="object-cover" />
-          <AvatarFallback>UR</AvatarFallback>
+          <AvatarFallback>{name ? name[0] : 'CM'}</AvatarFallback>
         </Avatar>
       </div>
       <div>
