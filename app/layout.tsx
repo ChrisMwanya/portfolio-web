@@ -34,13 +34,12 @@ export default function RootLayout({
   const meta = {
     title: 'All about - Chris Mwanya',
     description: 'Full stack developer and trainer.',
-    image: 'https://your-website.com/about-og-image.jpg',
+    image:
+      'https://res.cloudinary.com/chrismwanya/image/upload/v1726043988/portfolio_assets/ford_t.webp',
   };
   useEffect(() => {
     const currentUrl = window.location.href;
     setUrl(currentUrl);
-
-    console.log('currentUrl', currentUrl);
   }, [router]);
   return (
     <ThemeProvider
