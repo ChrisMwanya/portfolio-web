@@ -1,4 +1,4 @@
-import { Skeleton } from '@/components/ui/skeleton'; // Assurez-vous que vous avez importé le Skeleton depuis votre bibliothèque
+import { Skeleton } from '@/components/ui/skeleton';
 
 export const ProjectSkeleton = () => {
   return (
