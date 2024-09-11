@@ -1,5 +1,8 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/navigation';
+
 import { ApolloProvider } from '@apollo/client';
 import { client } from '@/lib/graphql';
 import Header from '@/components/header/header';
@@ -26,6 +29,19 @@ import { Toaster } from '@/components/ui/toaster';
 export default function RootLayout({
   children,
 }: React.PropsWithChildren<{ children: React.ReactNode }>) {
+  const router = useRouter();
+  const [url, setUrl] = useState('');
+  const meta = {
+    title: 'All about - Chris Mwanya',
+    description: 'Full stack developer and trainer.',
+    image: 'https://your-website.com/about-og-image.jpg',
+  };
+  useEffect(() => {
+    const currentUrl = window.location.href;
+    setUrl(currentUrl);
+
+    console.log('currentUrl', currentUrl);
+  }, [router]);
   return (
     <ThemeProvider
       attribute="class"
@@ -33,6 +49,18 @@ export default function RootLayout({
       enableSystem
       disableTransitionOnChange
     >
+      <Head>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:image" content={meta.image} />
+        <meta property="og:url" content={url} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.image} />
+      </Head>
       <ApolloProvider client={client}>
         <SessionProvider>
           <div className="relative bg-[url('../public/assets/logo-black.svg')] bg-30 bg-fixed bg-[80%_100%] bg-no-repeat dark:bg-[url('../public/assets/logo-white.svg')] max-md:bg-[100%_100%] max-sm:bg-50">
