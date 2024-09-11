@@ -23,7 +23,9 @@ const About = () => {
       </p>
       <div className="my-10 h-full w-full">
         <Image
-          src={'/assets/images/aboutImage.webp'}
+          src={
+            'https://res.cloudinary.com/chrismwanya/image/upload/v1726043986/portfolio_assets/outside_silikin.webp'
+          }
           width={300}
           height={500}
           className="my-1 rounded-xl object-cover"
