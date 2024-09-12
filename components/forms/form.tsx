@@ -193,7 +193,7 @@ export const CommentForm: React.FC<CommentFormType> = ({ showForm }) => {
             </FormItem>
           )}
         />
-        {showLoader ? 'Creating...' : <Button type="submit">Submit</Button>}
+        <Button type="submit">{showLoader ? 'Wait...' : 'Submit'}</Button>
       </form>
     </Form>
   );

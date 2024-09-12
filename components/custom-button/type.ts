@@ -13,7 +13,7 @@ export type CustomButtonLinkProps = {
 export type IconButtonProps = {
   children: React.ReactNode;
   type: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export type IconButtonLinkProps = {

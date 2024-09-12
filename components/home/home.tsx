@@ -19,11 +19,8 @@ export const Home = () => {
           <FeedSkeleton />
         </div>
       ) : (
-        data.feeds.data.map(({ attributes }: FeedEntity) => (
-          <Feed
-            key={attributes?.title}
-            feed={attributes ?? { title: '', description: {} }}
-          />
+        data.feeds.data.map(({ attributes, id }: FeedEntity) => (
+          <Feed key={id} feed={attributes ?? { title: '', description: {} }} />
         ))
       )}
     </div>

@@ -21,15 +21,9 @@ const GuestBook = () => {
             <GuestbookSkeleton />
           </>
         ) : (
-          data.guestbooks?.data?.map(
-            (comment: GuestbookEntity) =>
-              comment?.attributes && (
-                <Comment
-                  key={comment?.attributes?.email}
-                  {...comment?.attributes}
-                />
-              ), // Use a unique key for each Comment element
-          )
+          data.guestbooks?.data?.map(({ id, attributes }: GuestbookEntity) => (
+            <Comment key={id} attributes={attributes} id={id} />
+          ))
         )}
       </div>
     </div>
