@@ -64,7 +64,7 @@ export default function RootLayout({
         <SessionProvider>
           <div className="relative bg-[url('../public/assets/logo-black.svg')] bg-30 bg-fixed bg-[80%_100%] bg-no-repeat dark:bg-[url('../public/assets/logo-white.svg')] max-md:bg-[100%_100%] max-sm:bg-50">
             <div className="absolute inset-0 bg-background opacity-95" />
-            <div className="relative z-0">
+            <div className="relative z-0 p-0">
               <Header>
                 <NextLink href="/">
                   <Logo
@@ -85,7 +85,7 @@ export default function RootLayout({
                   <ModeToggle />
                 </div>
               </Header>
-              <div className="container lg:px-96">
+              <div className="lg:container max-sm:px-2 lg:px-96">
                 <div>
                   <div className="min-sm:h-20 size-full h-48 bg-[url('/assets/images/fordT.webp')] bg-cover bg-center bg-no-repeat max-md:h-20" />
                   <div className="flex justify-between p-5 max-sm:px-0">
