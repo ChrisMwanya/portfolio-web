@@ -26,6 +26,9 @@ This section lists other tools and technologies I use in my projects:
 
 - **Docker**: For containerizing applications, ensuring consistency across development and production environments.
 - **Git & GitHub**: For version control and project management.
+- **Prettier**: A code formatter that helps maintain a consistent code style.
+- **ESLint**: A tool for identifying and fixing linting issues in JavaScript and TypeScript code.
+- **Husky**: A tool for managing Git hooks, ensuring that code quality checks are run before commits.
 - **Jest**: A testing framework for JavaScript, ensuring that code is reliable and maintainable.
 - **Figma**: For designing UI/UX mockups and prototypes.
 
