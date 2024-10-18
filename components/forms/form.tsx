@@ -52,6 +52,12 @@ export const LoginForm = () => {
         <IconButton onClick={() => signIn('github')} type="">
           <span className="icon-[bi--github] text-2xl"></span>
         </IconButton>
+        <IconButton onClick={() => signIn('google')} type="">
+          <span className="icon-[bi--google] text-2xl"></span>
+        </IconButton>
+        <IconButton onClick={() => signIn('linkedin')} type="">
+          <span className="icon-[bi--linkedin] text-2xl"></span>
+        </IconButton>
       </div>
     </div>
   );
