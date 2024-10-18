@@ -5,9 +5,11 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Chris Mwanya',
   description: 'Fullstack Developer. Trainer. Human. Love sharing knowledge',
-  metadataBase: new URL(`${process.env.VERCEL_URL}`),
+
   openGraph: {
-    images: ['/assets/images/fordT.webp'],
+    images: [
+      'https://res.cloudinary.com/chrismwanya/image/upload/v1726043988/portfolio_assets/ford_t.webp',
+    ],
     title: 'Chris Mwanya',
     description: 'Fullstack Developer. Trainer. Human. Love sharing knowledge',
     url: `${process.env.VERCEL_URL}`,
@@ -18,7 +20,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Chris Mwanya',
     description: 'Fullstack Developer. Trainer. Human. Love sharing knowledge',
-    images: '/assets/images/fordT.webp',
+    images:
+      'https://res.cloudinary.com/chrismwanya/image/upload/v1726043988/portfolio_assets/ford_t.webp',
   },
 };
 const Index = () => <Home />;
