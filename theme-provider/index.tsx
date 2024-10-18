@@ -8,11 +8,5 @@ export function ThemeProvider({
   children,
   ...props
 }: Readonly<ThemeProviderProps>) {
-  return (
-    <html lang="en">
-      <body>
-        <NextThemesProvider {...props}>{children}</NextThemesProvider>
-      </body>
-    </html>
-  );
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }
