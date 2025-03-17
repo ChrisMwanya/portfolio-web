@@ -1,19 +1,16 @@
-'use client';
-import { useQuery } from '@apollo/client';
-import { GET_FEEDS } from './getData';
-import { Feed } from '@/components/cards/feed';
-import { FeedEntity } from '@/graphql/graphql';
+// import { Feed } from '@/components/cards/feed';
+// import { FeedEntity } from '@/graphql/graphql';
 
-import { FeedSkeleton } from '../cards/feed';
+// import { FeedSkeleton } from '../cards/feed';
 
-export const Home = () => {
-  const { loading, error, data } = useQuery(GET_FEEDS);
+export const Home = async () => {
+  // const { loading, error, data } = useQuery(GET_FEEDS);
 
-  if (error) return <p>Error : {error.message}</p>;
+  // if (error) return <p>Error : {error.message}</p>;
 
   return (
     <div id="feed" className="">
-      {loading ? (
+      {/* {loading ? (
         <div className="gap-y-4">
           <FeedSkeleton />
           <FeedSkeleton />
@@ -22,7 +19,7 @@ export const Home = () => {
         data.feeds.data.map(({ attributes, id }: FeedEntity) => (
           <Feed key={id} feed={attributes ?? { title: '', description: {} }} />
         ))
-      )}
+      )} */}
     </div>
   );
 };
