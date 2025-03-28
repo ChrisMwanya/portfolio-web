@@ -117,3 +117,48 @@ export const getAllFeeds = () => {
 
   return feeds;
 };
+
+interface Project {
+  title: string;
+  description?: string;
+  link?: string;
+  created_at?: string;
+  updated_at?: string;
+  published_at?: string;
+}
+
+export const getAllProjects = (): Project[] => {
+  const filePath = path.join(process.cwd(), 'contents', 'project.md');
+
+  if (!fs.existsSync(filePath)) {
+    throw new Error('Markdown file not found');
+  }
+
+  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const lines = fileContent.split('\n').filter((line) => line.trim() !== '');
+
+  let currentProject: Project | null = null;
+  const projects: Project[] = [];
+
+  lines.forEach((line) => {
+    if (line.startsWith('## ')) {
+      if (currentProject) {
+        projects.push(currentProject);
+      }
+      currentProject = { title: line.replace('## ', '').trim() };
+    } else if (currentProject) {
+      if (line.startsWith('**Description**')) {
+        currentProject.description = line.split(': ')[1]?.trim();
+      } else if (line.startsWith('**Lien**')) {
+        const match = line.match(/\[(.*?)\]\((.*?)\)/);
+        currentProject.link = match ? match[2] : '';
+      }
+    }
+  });
+
+  if (currentProject) {
+    projects.push(currentProject);
+  }
+
+  return projects;
+};
