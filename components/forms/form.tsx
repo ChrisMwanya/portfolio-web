@@ -75,7 +75,7 @@ export const CommentForm: React.FC<CommentFormType> = ({ showForm }) => {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const token = useAuthStore.getState().jwt;
     setShowLoader(true);
     const data = {
@@ -113,7 +113,7 @@ export const CommentForm: React.FC<CommentFormType> = ({ showForm }) => {
       });
 
     setShowLoader(false);
-  }
+  };
   return (
     <Form {...form}>
       <div className="mb-6 flex flex-col items-center gap-y-2 text-center">
@@ -124,11 +124,11 @@ export const CommentForm: React.FC<CommentFormType> = ({ showForm }) => {
           </AvatarFallback>
         </Avatar>
         <h6>
-          Hi <span className="font-semibold">{session?.user?.name}!</span>{' '}
+          Salut <span className="font-semibold">{session?.user?.name}!</span>{' '}
         </h6>
         <p className="text-xs">
-          Your name, your avatar and all infos you provide will be display with
-          your comment
+          Votre nom, votre avatar et toutes les informations que vous fournissez
+          seront affichés avec votre commentaire
         </p>
       </div>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -145,7 +145,9 @@ export const CommentForm: React.FC<CommentFormType> = ({ showForm }) => {
                 />
               </FormControl>
               <FormDescription className="text-xs">
-                {'We will display your company name on your comment.'}
+                {
+                  'Nous afficherons le nom de votre entreprise sur votre commentaire.'
+                }
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -185,13 +187,16 @@ export const CommentForm: React.FC<CommentFormType> = ({ showForm }) => {
           name="comment"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your comment</FormLabel>
+              <FormLabel>Votre commentaire</FormLabel>
               <FormControl>
-                <Textarea placeholder="Leave your comment here" {...field} />
+                <Textarea
+                  placeholder="Laissez votre commentaire ici"
+                  {...field}
+                />
               </FormControl>
               <FormDescription className="text-xs">
                 {
-                  "We're so excited to bring you this new comment on this page after moderation!"
+                  'Nous sommes ravis de vous apporter ce nouveau commentaire sur cette page après modération !'
                 }{' '}
                 {':)'}
               </FormDescription>

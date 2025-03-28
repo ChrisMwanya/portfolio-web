@@ -1,29 +1,15 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { DateTime } from 'luxon';
 import { Pin, Dot } from 'lucide-react';
 import { ProfileAvatar } from '@/components/avatar';
 import { CommentForm, LoginForm } from '@/components/forms';
-import { useSession } from 'next-auth/react';
-import { login } from '@/lib/auth';
 
 export const AddComment: React.FC = () => {
   const dateFormated = DateTime.local().toFormat('DD ');
   const [showForm, setShowForm] = useState<boolean>(false);
-  const [showCommentForm, setShowCommentForm] = useState<boolean>(false);
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    login(
-      process.env.NEXT_PUBLIC_STRAPI_USER ?? 'strapi',
-      process.env.NEXT_PUBLIC_STRAPI_PASSWORD ?? 'strapi',
-    );
-    if (session) {
-      setShowCommentForm(true);
-      // setShowForm(true);
-    }
-  }, [session]);
+  const [showCommentForm] = useState<boolean>(false);
 
   return (
     <article className="grid grid-cols-[1fr_10fr] gap-x-2 gap-y-4 rounded-lg px-3 py-6 hover:bg-primary-foreground">
@@ -46,7 +32,8 @@ export const AddComment: React.FC = () => {
           <p className="text-xs text-muted-foreground">{dateFormated}</p>
         </div>
         <p>
-          {'Want to say something about me ? Fill this form'} {'💬'}
+          {'Vous voulez dire quelque chose sur moi ? Remplissez ce formulaire'}{' '}
+          {'💬'}
         </p>
 
         <div className="my-5 h-full w-full">
