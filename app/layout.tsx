@@ -67,7 +67,7 @@ export default function RootLayout({
                       href="https://www.linkedin.com/in/christianmwanya/"
                       target="_blank"
                     >
-                      <p> Follow</p>
+                      <p> Suivre</p>
                       <span className="icon-[pajamas--linkedin] text-xl" />
                     </CustomButtonLink>
                   </div>
@@ -88,16 +88,17 @@ export default function RootLayout({
                     </TitleH1>
                     <div className="my-2">
                       <p className="mb-3 text-sm">
-                        Not just sharing knowledge and solution but share{' '}
+                        Pas seulement partager des connaissances et des
+                        solutions, mais partager{' '}
                         <strong className="font-semibold text-main">
-                          passion
+                          la passion
                         </strong>
                         ✨
                       </p>
                       <p className="my-1">
-                        Fullstack Developer. Trainer. Human. Love sharing
-                        knowledge <br />
-                        Currently developer trainer at{' '}
+                        Développeur Fullstack. Formateur. Humain. Aime partager
+                        ses connaissances <br />
+                        Actuellement formateur développeur chez{' '}
                         <Link href="https://www.kadea.academy/" target="_blank">
                           kadea academy
                         </Link>
@@ -107,24 +108,24 @@ export default function RootLayout({
                       </div>
                       <div className="my-4 flex flex-wrap items-center gap-6">
                         <ListItemIcon iconClassName="icon-[ic--round-home-work]">
-                          Available
+                          Disponible
                         </ListItemIcon>
                         <ListItemIcon iconClassName="icon-[ph--link-bold]">
                           <Link
                             href="https://linktr.ee/chrismwanya"
                             target="_blank"
                           >
-                            /links
+                            /Liens
                           </Link>
                         </ListItemIcon>
                         <ListItemIcon iconClassName="icon-[jam--birthday-cake]">
-                          Dec 13th
+                          13 Déc
                         </ListItemIcon>
                         <ListItemIcon iconClassName="icon-[majesticons--calendar]">
-                          Since 2021
+                          Depuis 2021
                         </ListItemIcon>
                         <ListItemIcon iconClassName="icon-[ic--baseline-place]">
-                          Kinshasa, DRC
+                          Kinshasa, RDC
                         </ListItemIcon>
                       </div>
                     </div>
