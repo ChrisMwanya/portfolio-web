@@ -7,38 +7,46 @@
 **Description**:
 
 ```
-{"date": "2022-12-13", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1726044012/portfolio_assets/kadea_office.webp", "status": "Feelin' myself", "content": "At Kadea, I help learners level up their skills in fullstack development. My goal is to guide them in mastering both frontend and backend, so they become versatile developers ready to take on any challenge in the tech world. 💻🚀", "isPinned": true, "statusIcon": "🌴"}
+{"date": "2022-12-13", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1726044012/portfolio_assets/kadea_office.webp", "status": "Dans mon assiette", "content": "À Kadea, j'accompagne les apprenants dans leur montée en compétences. Mon objectif ? Les aider à devenir des développeurs polyvalents, à l'aise aussi bien en frontend qu'en backend. Je leur transmets des bases solides, les bonnes pratiques et l'état d'esprit nécessaire pour relever tous les défis du monde de la tech. 💻🚀", "isPinned": true, "statusIcon": "🌴"}
 ```
 
 ---
 
 ### ID: 2
 
-**Titre**: Community
+**Titre**: Communauté
 
 **Description**:
 
 ```
-{"date": "2023-12-13", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1726043976/portfolio_assets/chris_at_don_bosco.webp", "title": "Community", "status": "Making others' lives easier", "content": "I also conducted web development basics training for 40 young people as part of the RESICODI program by Enabel RDC. The learners were able to build a landing page in less than a week, and some decided to pursue development as their profession. 😊🚀", "isPinned": false, "statusIcon": "🚀"}
+
+```
+
+```
+{"date": "2023-12-13", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1726043976/portfolio_assets/chris_at_don_bosco.webp", "title": "Communauté", "status": "Faciliter la vie des autres", "content": "J'ai eu la chance d'animer une session de formation sur les bases du développement web à 40 jeunes dans le cadre du programme RESICODI d'Enabel RDC. En moins d'une semaine, ils ont créé leur propre landing page, et certains ont même choisi de faire du développement leur nouvelle passion et carrière.. 😊🚀", "isPinned": false, "statusIcon": "🚀"}
+```
+
+```
+
 ```
 
 ---
 
 ### ID: 3
 
-**Titre**: Generativity
+**Titre**: Générativité
 
 **Description**:
 
 ```
-{"date": "2024-05-13", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1729252586/portfolio_assets/onradio.jpg", "title": "Community", "status": "On the air", "content": "As a guest on a local radio show, I had the opportunity to discuss the evolving world of web and mobile development. I shared insights on the latest trends, best practices, and how aspiring developers can build successful careers in this fast-growing industry. Additionally, I emphasized the importance of continuous learning, adaptability, and the impact of technology on various sectors in our society today. It was a great platform to highlight the opportunities available for developers, especially in Kinshasa, and inspire the next generation of tech professionals. 😊🚀", "isPinned": false, "statusIcon": "🚀"}
+{"date": "2024-05-13", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1729252586/portfolio_assets/onradio.jpg", "title": "Communauté", "status": "À l'antenne", "content": "En tant qu'invité dans une radio locale, j'ai eu l'opportunité de plonger dans l'univers en perpétuelle évolution du développement web et mobile. J'y ai partagé des insights sur les dernières tendances, les meilleures pratiques, et des conseils pour les développeurs en herbe désireux de se lancer dans cette industrie en plein essor. J'ai aussi mis en avant l'importance de l'apprentissage continu, de l'adaptabilité, et de l'impact colossal de la tech sur les secteurs de notre société. Ce fut une plateforme géniale pour dévoiler les nombreuses opportunités qui s'offrent aux développeurs, en particulier à Kinshasa, et inspirer la future génération de professionnels de la tech à prendre leur envol. 🚀🎙️", "isPinned": false, "statusIcon": "🚀"}
 ```
 
 ---
 
 ### ID: 4
 
-**Titre**: My Vibes
+**Titre**: Mes Vibes
 
 **Description**:
 
@@ -50,12 +58,12 @@
 
 ### ID: 5
 
-**Titre**: Somewhere
+**Titre**: Quelque part
 
 **Description**:
 
 ```
-{"date": "2023-05-06", "name": "Chris working out", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1726043977/portfolio_assets/chris_on_bicycle.webp", "title": "", "status": "Outside of work", "content": "", "isPinned": false, "statusIcon": "🚀"}
+{"date": "2023-05-06", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1726043977/portfolio_assets/chris_on_bicycle.webp", "title": "", "status": "En dehors du travail", "content": "", "isPinned": false, "statusIcon": "🚀"}
 ```
 
 ---
