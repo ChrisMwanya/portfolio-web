@@ -7,20 +7,13 @@ const About = () => {
   return (
     <>
       <div className="flex items-center gap-2 text-foreground">
-        <H2>Mbote! 👋</H2> <span>(Hello in Lingala)</span>
+        <H2>Mbote! 👋</H2> <span>(Salut en Lingala)</span>
       </div>
 
       <p className="my-4">
-        {`Hi, I'm Christian, a fullstack developer passionate about building web
-        and mobile applications!`}
+        {`Je suis Christian, développeur fullstack passionné par la programmation et la pédagogie !`}
       </p>
-      <p>
-        {` While I thrive on autonomy, I equally enjoy collaborating with teams,
-        whether on-site or remotely. What I love most is not only sharing my
-        knowledge but also my passion for coding. I've had the privilege of
-        guiding those who want to break into the tech world, helping them
-        develop their skills and grow within this industry.`}
-      </p>
+
       <div className="my-10 h-full w-full">
         <Image
           src={
@@ -34,25 +27,18 @@ const About = () => {
         />
       </div>
       <p>
-        {`Throughout various projects, I've worked with a wide range of
-        technologies, from React and Express.js to AdonisJS, Strapi, and
-        WordPress. Whether it's designing responsive interfaces, architecting
-        robust APIs, or crafting custom content management systems, I always
-        strive to deliver high-performance and accessible solutions.`}
+        {`À travers différents projets, j'ai eu l'opportunité de toucher à un large éventail de technologies, de React et Express.js à AdonisJS, Strapi et WordPress. Que ce soit pour concevoir des interfaces ultra-réactives, bâtir des API solides ou créer des systèmes de gestion de contenu sur-mesure, mon objectif reste toujours le même : offrir des solutions performantes, intuitives et accessibles.`}
       </p>
       <p className="my-4">
-        {`  In addition to being a fullstack developer, I'm also a coach and trainer
-        at Kadea Academy. There, I get the opportunity to share my expertise
-        with motivated learners while continuously exploring the latest
-        technologies.`}
+        {`En plus de mon rôle de développeur fullstack, je suis également coach et formateur à Kadea Academy. C'est un véritable privilège de partager mon expertise avec des apprenants passionnés, tout en restant à l'affût des dernières innovations technologiques.`}
       </p>
       <p>
-        {`If you're up for a chat, want to learn more, or just want to say hi,
-        feel free to `}
-        <Link href="mailto:cmwanya@gmail.com">reach out !</Link>
+        {`Si vous souhaitez discuter, en savoir plus ou simplement dire bonjour,
+        n'hésitez pas à `}
+        <Link href="mailto:cmwanya@gmail.com">me contacter !</Link>
       </p>
 
-      <p className="my-4">Stay inspired!</p>
+      <p className="my-4">Restez inspiré !</p>
     </>
   );
 };

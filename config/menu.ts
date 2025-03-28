@@ -5,7 +5,7 @@ export const menuItems: MenuItemProps[] = [
     href: '/',
   },
   {
-    title: 'About',
+    title: 'Moi',
     href: '/about',
   },
   // {
@@ -13,12 +13,12 @@ export const menuItems: MenuItemProps[] = [
   //   href: '/blog',
   // },
   {
-    title: 'Projects',
+    title: 'Projets',
     href: '/projects',
   },
 
-  {
-    title: 'Guestbook',
-    href: '/guestbook',
-  },
+  // {
+  //   title: 'Guestbook',
+  //   href: '/guestbook',
+  // },
 ];
