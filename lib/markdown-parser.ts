@@ -152,13 +152,13 @@ export const getAllProjects = (): Project[] => {
       if (line.startsWith('**Description**')) {
         currentProject.description = line.split(': ')[1]?.trim();
       } else if (line.startsWith('**Lien**')) {
-        const match = line.match(/\[(.*?)\]\((.*?)\)/);
-        currentProject.link = match ? match[2] : '';
+        const linkMatch = /\[(.*?)\]\((.*?)/.exec(line);
+        currentProject.link = linkMatch ? linkMatch[2] : '';
       } else if (line.startsWith('**Image**')) {
-        const match = line.match(/\[(.*?)\]\((.*?)\)/);
-        if (match) {
-          currentProject.imageAlt = match[1];
-          currentProject.image = match[2];
+        const imageMatch = /\[(.*?)\]\((.*?)/.exec(line);
+        if (imageMatch) {
+          currentProject.imageAlt = imageMatch[1];
+          currentProject.image = imageMatch[2];
         }
       }
     }
@@ -174,9 +174,9 @@ export const getAllProjects = (): Project[] => {
 interface Playlist {
   id?: string;
   title: string;
-  description?: string;
+  description?: string | null;
   platform: 'spotify' | 'youtube';
-  embedUrl: string;
+  embedUrl: string | null;
 }
 
 export const getAllPlaylists = (): Playlist[] => {
@@ -189,18 +189,19 @@ export const getAllPlaylists = (): Playlist[] => {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const lines = fileContent.split('\n').filter((line) => line.trim() !== '');
 
-  let currentPlaylist: Partial<Playlist> | null = null;
+  let currentPlaylist: Partial<Playlist> = {};
   const playlists: Playlist[] = [];
+
+  const isValidPlaylist = (
+    playlist: Partial<Playlist>,
+  ): playlist is Playlist => {
+    return Boolean(playlist.embedUrl && playlist.title && playlist.platform);
+  };
 
   lines.forEach((line) => {
     if (line.startsWith('## ')) {
-      if (
-        currentPlaylist &&
-        currentPlaylist.embedUrl &&
-        currentPlaylist.title &&
-        currentPlaylist.platform
-      ) {
-        playlists.push(currentPlaylist as Playlist);
+      if (isValidPlaylist(currentPlaylist)) {
+        playlists.push(currentPlaylist);
       }
       currentPlaylist = {
         id: line.replace('## ', '').trim().toLowerCase().replace(/\s+/g, '-'),
@@ -222,13 +223,8 @@ export const getAllPlaylists = (): Playlist[] => {
     }
   });
 
-  if (
-    currentPlaylist &&
-    currentPlaylist.embedUrl &&
-    currentPlaylist.title &&
-    currentPlaylist.platform
-  ) {
-    playlists.push(currentPlaylist as Playlist);
+  if (isValidPlaylist(currentPlaylist)) {
+    playlists.push(currentPlaylist);
   }
 
   return playlists;
