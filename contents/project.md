@@ -3,7 +3,8 @@
 ## Mentor4Job
 
 **Description** : Mentor4Job est un programme de mentorat personnalisé qui...  
-**Lien** : [Mentor4Job](https://mentor4job.kinshasadigital.academy/)
+**Lien** : [Mentor4Job](https://mentor4job.kinshasadigital.academy/)  
+**Image** : [Capture d'écran de Mentor4Job](https://res.cloudinary.com/chrismwanya/image/upload/v1726043988/portfolio_assets/ford_t.webp)
 
 ---
 

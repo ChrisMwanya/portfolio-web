@@ -122,6 +122,8 @@ interface Project {
   title: string;
   description?: string;
   link?: string;
+  image?: string;
+  imageAlt?: string;
   created_at?: string;
   updated_at?: string;
   published_at?: string;
@@ -152,6 +154,12 @@ export const getAllProjects = (): Project[] => {
       } else if (line.startsWith('**Lien**')) {
         const match = line.match(/\[(.*?)\]\((.*?)\)/);
         currentProject.link = match ? match[2] : '';
+      } else if (line.startsWith('**Image**')) {
+        const match = line.match(/\[(.*?)\]\((.*?)\)/);
+        if (match) {
+          currentProject.imageAlt = match[1];
+          currentProject.image = match[2];
+        }
       }
     }
   });
