@@ -8,7 +8,7 @@
 
 ---
 
-## Christian Chill & Relax
+## Christian Chill & Smooth
 
 **Platform**: spotify
 **Description**: Pour se détendre après une longue journée de code
