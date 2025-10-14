@@ -87,7 +87,9 @@ export default function PlaylistsPage() {
                 <div className="relative aspect-video w-full bg-gray-100 dark:bg-gray-800">
                   <iframe
                     src={playlist.embedUrl || undefined}
-                    className="h-full w-full"
+                    width="100%"
+                    height="352"
+                    // className="h-full w-full"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
                     title={playlist.title}

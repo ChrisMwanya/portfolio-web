@@ -22,23 +22,26 @@ const Project = () => {
 
       {/* Projects grid */}
       <div className="mt-10 gap-y-4">
-        {data?.map(({ title, description, link, image, imageAlt }, index) => {
-          const staggerClass = `stagger-${Math.min(index + 1, 5)}`;
-          return (
-            <div
-              key={title ?? undefined}
-              className={`animate-fade-in-up ${staggerClass}`}
-            >
-              <ProjectComponent
-                title={title ?? null}
-                description={description ?? null}
-                link={link ?? null}
-                image={image}
-                imageAlt={imageAlt}
-              />
-            </div>
-          );
-        })}
+        {data?.map(
+          ({ title, description, link, image, imageAlt, technos }, index) => {
+            const staggerClass = `stagger-${Math.min(index + 1, 5)}`;
+            return (
+              <div
+                key={title ?? undefined}
+                className={`animate-fade-in-up ${staggerClass}`}
+              >
+                <ProjectComponent
+                  title={title ?? null}
+                  description={description ?? null}
+                  link={link ?? null}
+                  image={image}
+                  imageAlt={imageAlt}
+                  technos={technos}
+                />
+              </div>
+            );
+          },
+        )}
       </div>
     </div>
   );

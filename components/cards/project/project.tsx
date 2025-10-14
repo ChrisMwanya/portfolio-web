@@ -4,9 +4,20 @@ import LinkIcon from '@/components/icon-link/link-icon';
 import { ExternalLink, Globe } from 'lucide-react';
 import Image from 'next/image';
 
-export const ProjectComponent: React.FC<
-  ProjectType & { image?: string; imageAlt?: string }
-> = ({ title, description, link, technos, image, imageAlt }) => {
+type ProjectComponentProps = Omit<ProjectType, 'technos'> & {
+  image?: string;
+  imageAlt?: string;
+  technos?: ProjectType['technos'] | string[];
+};
+
+export const ProjectComponent: React.FC<ProjectComponentProps> = ({
+  title,
+  description,
+  link,
+  technos,
+  image,
+  imageAlt,
+}) => {
   // Generate a gradient based on project title (for visual variety)
   const gradients = [
     'from-blue-500/20 to-purple-500/20',
@@ -109,22 +120,38 @@ export const ProjectComponent: React.FC<
             {description}
           </p>
 
-          {technos?.data && technos.data.length > 0 && (
+          {/* Display technos - support both GraphQL format and simple string array */}
+          {((technos && Array.isArray(technos) && technos.length > 0) ||
+            (technos &&
+              typeof technos === 'object' &&
+              'data' in technos &&
+              technos.data &&
+              technos.data.length > 0)) && (
             <div className="mb-4 flex flex-wrap gap-2">
-              {technos.data.map((techno, index) => {
-                return (
-                  <span
-                    key={techno?.attributes?.name || index}
-                    className="group/tag relative overflow-hidden rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-amber-400"
-                  >
-                    {/* Shimmer effect on hover */}
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover/tag:translate-x-full" />
-                    <span className="relative z-10">
-                      {techno?.attributes?.name}
+              {Array.isArray(technos)
+                ? // Simple string array from markdown
+                  technos.map((techno, index) => (
+                    <span
+                      key={`${techno}-${index}`}
+                      className="group/tag relative overflow-hidden rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-amber-400"
+                    >
+                      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover/tag:translate-x-full" />
+                      <span className="relative z-10">{techno}</span>
                     </span>
-                  </span>
-                );
-              })}
+                  ))
+                : // GraphQL format
+                  'data' in technos &&
+                  technos.data?.map((techno, index) => (
+                    <span
+                      key={techno?.attributes?.name || index}
+                      className="group/tag relative overflow-hidden rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-amber-400"
+                    >
+                      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover/tag:translate-x-full" />
+                      <span className="relative z-10">
+                        {techno?.attributes?.name}
+                      </span>
+                    </span>
+                  ))}
             </div>
           )}
 
