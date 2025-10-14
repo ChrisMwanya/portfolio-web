@@ -32,8 +32,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative bg-[url('../public/assets/logo-black.svg')] bg-30 bg-fixed bg-[80%_100%] bg-no-repeat dark:bg-[url('../public/assets/logo-white.svg')] max-md:bg-[100%_100%] max-sm:bg-50">
+          <div className="relative overflow-hidden bg-[url('../public/assets/logo-black.svg')] bg-30 bg-fixed bg-[80%_100%] bg-no-repeat dark:bg-[url('../public/assets/logo-white.svg')] max-md:bg-[100%_100%] max-sm:bg-50">
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 animate-gradient-xy bg-gradient-to-br from-main/5 via-purple-500/5 to-amber-500/5 opacity-50" />
             <div className="absolute inset-0 bg-background opacity-95" />
+
+            {/* Floating orbs for depth */}
+            <div className="pointer-events-none absolute left-1/4 top-20 h-64 w-64 animate-float rounded-full bg-main/10 blur-3xl" />
+            <div
+              className="pointer-events-none absolute right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-purple-500/10 blur-3xl"
+              style={{ animationDelay: '2s' }}
+            />
+
             <div className="relative z-0 p-0">
               <Header>
                 <NextLink href="/">
@@ -57,40 +67,53 @@ export default function RootLayout({
               </Header>
               <div className="lg:container max-sm:px-2 lg:px-96">
                 <div>
-                  <div className="min-sm:h-20 size-full h-48 bg-[url('/assets/images/fordT.webp')] bg-cover bg-center bg-no-repeat max-md:h-20" />
-                  <div className="flex justify-between p-5 max-sm:px-0">
-                    <Avatar
-                      // altText="Avatar Christian"
-                      className="-mt-20 h-44 w-44 rounded-full border-4 border-foreground max-sm:-mt-9 max-sm:h-36 max-sm:w-36"
-                    />
-                    <CustomButtonLink
-                      href="https://www.linkedin.com/in/christianmwanya/"
-                      target="_blank"
-                    >
-                      <p> Suivre</p>
-                      <span className="icon-[pajamas--linkedin] text-xl" />
-                    </CustomButtonLink>
+                  <div className="min-sm:h-20 relative size-full h-48 overflow-hidden bg-[url('/assets/images/fordT.webp')] bg-cover bg-center bg-no-repeat max-md:h-20">
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/50" />
+                  </div>
+                  <div className="flex animate-fade-in justify-between p-5 max-sm:px-0">
+                    <div className="group relative transition-transform duration-300 hover:scale-105">
+                      <Avatar
+                        // altText="Avatar Christian"
+                        className="-mt-20 h-44 w-44 rounded-full border-4 border-main shadow-2xl transition-all duration-300 group-hover:border-amber-600 max-sm:-mt-9 max-sm:h-36 max-sm:w-36"
+                      />
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 -z-10 -mt-20 h-44 w-44 rounded-full bg-main/30 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 max-sm:-mt-9 max-sm:h-36 max-sm:w-36" />
+                    </div>
+                    <div className="animate-fade-in-up">
+                      <CustomButtonLink
+                        href="https://www.linkedin.com/in/christianmwanya/"
+                        target="_blank"
+                      >
+                        <p> Suivre</p>
+                        <span className="icon-[pajamas--linkedin] text-xl" />
+                      </CustomButtonLink>
+                    </div>
                   </div>
 
                   <div className="mt-3">
                     <TitleH1>
-                      <div className="flex">
-                        Chris Mwanya
+                      <div className="flex animate-fade-in-up items-center">
+                        <span className="bg-gradient-to-r from-main via-amber-600 to-main bg-clip-text text-transparent transition-all duration-500 hover:from-amber-600 hover:via-main hover:to-amber-600">
+                          Chris Mwanya
+                        </span>
                         <LinkIcon
                           href="https://github.com/ChrisMwanya"
-                          iconClassName="icon-[bi--github] text-2xl"
+                          iconClassName="icon-[bi--github] text-2xl transition-all duration-300 hover:scale-125 hover:rotate-12"
                           className="mx-5"
                         />
-                        <AvatarIcon className="bg-main">
-                          <AvatarImage src="/assets/images/ford-model-t.png" />
-                        </AvatarIcon>
+                        <div className="animate-float">
+                          <AvatarIcon className="bg-main shadow-lg ring-2 ring-main/20 transition-all duration-300 hover:scale-110 hover:ring-4">
+                            <AvatarImage src="/assets/images/ford-model-t.png" />
+                          </AvatarIcon>
+                        </div>
                       </div>
                     </TitleH1>
-                    <div className="my-2">
+                    <div className="my-2 animate-fade-in-up">
                       <p className="mb-3 text-sm">
                         Pas seulement partager des connaissances et des
                         solutions, mais partager{' '}
-                        <strong className="font-semibold text-main">
+                        <strong className="animate-pulse font-semibold text-main">
                           la passion
                         </strong>
                         ✨

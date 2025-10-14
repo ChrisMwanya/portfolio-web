@@ -16,9 +16,16 @@ const MenuItem: React.FC<MenuItemProps> = ({ title, href }) => {
   return (
     <Link
       href={href}
-      className={`w-full flex-shrink-0 flex-grow basis-0 cursor-pointer py-4 text-center text-muted-foreground hover:bg-primary-foreground`}
+      className={`group relative w-full flex-shrink-0 flex-grow basis-0 cursor-pointer overflow-hidden rounded-lg py-4 text-center text-muted-foreground transition-all duration-300 hover:bg-white/40 hover:shadow-md hover:backdrop-blur-md dark:hover:bg-white/5`}
     >
-      <span className={`border-b-4 pb-2 ${activeClassName}`}> {title}</span>
+      {/* Hover gradient effect */}
+      <div className="absolute inset-0 translate-y-full bg-gradient-to-t from-main/10 to-transparent transition-transform duration-300 group-hover:translate-y-0" />
+
+      <span
+        className={`relative z-10 border-b-4 pb-2 transition-colors ${activeClassName} ${isActive ? 'text-main' : 'group-hover:text-main'}`}
+      >
+        {title}
+      </span>
     </Link>
   );
 };
