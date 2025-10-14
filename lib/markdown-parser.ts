@@ -124,6 +124,7 @@ interface Project {
   link?: string;
   image?: string;
   imageAlt?: string;
+  technos?: string[];
   created_at?: string;
   updated_at?: string;
   published_at?: string;
@@ -152,14 +153,19 @@ export const getAllProjects = (): Project[] => {
       if (line.startsWith('**Description**')) {
         currentProject.description = line.split(': ')[1]?.trim();
       } else if (line.startsWith('**Lien**')) {
-        const linkMatch = /\[(.*?)\]\((.*?)/.exec(line);
+        const linkMatch = /\[(.*?)\]\((.*?)\)/.exec(line);
         currentProject.link = linkMatch ? linkMatch[2] : '';
       } else if (line.startsWith('**Image**')) {
-        const imageMatch = /\[(.*?)\]\((.*?)/.exec(line);
+        const imageMatch = /\[(.*?)\]\((.*?)\)/.exec(line);
         if (imageMatch) {
           currentProject.imageAlt = imageMatch[1];
           currentProject.image = imageMatch[2];
         }
+      } else if (line.startsWith('**Technos**')) {
+        const technosString = line.split(': ')[1]?.trim();
+        currentProject.technos = technosString
+          ? technosString.split(',').map((t) => t.trim())
+          : [];
       }
     }
   });

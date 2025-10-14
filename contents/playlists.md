@@ -1,18 +1,18 @@
 # Mes Playlists
 
-## Coding Vibes
+## Christian Country Roads
 
 **Platform**: spotify
 **Description**: Ma playlist pour coder en mode focus - lofi, électro et ambiance productive
-**EmbedUrl**: https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS?utm_source=generator
+**EmbedUrl**: https://open.spotify.com/embed/playlist/3XIHtHwRHEZIl5t2YpeuKu?utm_source=generator
 
 ---
 
-## Chill & Relax
+## Christian Chill & Relax
 
 **Platform**: spotify
 **Description**: Pour se détendre après une longue journée de code
-**EmbedUrl**: https://open.spotify.com/embed/playlist/37i9dQZF1DWZd79rJ6a7lp?utm_source=generator
+**EmbedUrl**: https://open.spotify.com/embed/playlist/0M11YSx14qtBD3leBt6WdD?utm_source=generator
 
 ---
 
