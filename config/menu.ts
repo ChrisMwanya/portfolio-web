@@ -16,7 +16,6 @@ export const menuItems: MenuItemProps[] = [
     title: 'Projets',
     href: '/projects',
   },
-
   // {
   //   title: 'Guestbook',
   //   href: '/guestbook',

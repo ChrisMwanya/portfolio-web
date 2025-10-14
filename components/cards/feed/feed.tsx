@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
 import { Pin, Dot, Heart, X, ZoomIn } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ProfileAvatar } from '@/components/avatar';
 import { Feed as FeedType } from './type';
 
@@ -80,13 +81,26 @@ export const Feed: React.FC<FeedType> = (feed) => {
           <p className="mt-3 leading-relaxed">{feed.content?.content}</p>
           <div className="my-10 h-full w-full">
             {feed.content?.spotify ? (
-              <iframe
-                className="rounded-xl object-cover shadow-lg transition-shadow hover:shadow-2xl"
-                src={feed.content?.spotify}
-                width="100%"
-                height="352"
-                title="spotify"
-              ></iframe>
+              <Link
+                href="/playlists"
+                className="group/spotify relative block overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.02]"
+              >
+                {/* Overlay with click hint */}
+                <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover/spotify:bg-black/30 group-hover/spotify:opacity-100">
+                  <div className="rounded-full bg-white/90 px-6 py-3 backdrop-blur-sm dark:bg-gray-900/90">
+                    <p className="text-sm font-semibold text-main">
+                      🎵 Voir toutes mes playlists
+                    </p>
+                  </div>
+                </div>
+                <iframe
+                  className="pointer-events-none rounded-xl object-cover shadow-lg transition-shadow group-hover/spotify:shadow-2xl"
+                  src={feed.content?.spotify}
+                  width="100%"
+                  height="352"
+                  title="spotify"
+                ></iframe>
+              </Link>
             ) : (
               <div
                 className="group/image relative cursor-pointer overflow-hidden rounded-xl"

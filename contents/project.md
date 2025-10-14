@@ -2,7 +2,7 @@
 
 ## OCATE
 
-**Description** : Mise en place d'un portfolio pour un développeur et formateur...  
+**Description** : Plateforme interactive dédiée à l’accès à l’énergie en RDC, permettant de visualiser et d’analyser les données énergétiques nationales. J’y ai contribué au développement front-end et à l’intégration des données issues du back-end Strapi.
 **Lien** : [Ocate](https://congoenergie.ocate.org/)
 **Image** : [Capture d'écran de Ocate](https://res.cloudinary.com/chrismwanya/image/upload/v1760443332/Capture_d_%C3%A9cran_du_2025-10-14_12-53-55_nf4yv6.png)
 
@@ -10,7 +10,7 @@
 
 ## EaglTech
 
-**Description** : Mise en place d'un portfolio pour un développeur et formateur...  
+**Description** : Site vitrine moderne présentant les services technologiques de l’entreprise EAGLTECH. J’ai participé à la conception et au développement du front-end pour offrir une expérience utilisateur fluide et professionnelle.
 **Lien** : [EaglTech](https://www.eagltc.com/)
 **Image** : [Capture d'écran de EaglTech](https://res.cloudinary.com/chrismwanya/image/upload/v1760443335/Capture_d_%C3%A9cran_du_2025-10-14_12-54-23_xlmshn.png)
 
