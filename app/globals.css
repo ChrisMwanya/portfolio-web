@@ -67,3 +67,45 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* Glassmorphism Effects */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md dark:bg-white/5;
+  }
+
+  .glass-strong {
+    @apply bg-white/20 backdrop-blur-xl dark:bg-white/10;
+  }
+
+  .glass-card {
+    @apply rounded-xl border border-white/20 bg-white/60 shadow-xl backdrop-blur-md dark:border-white/10 dark:bg-gray-900/60;
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:bg-white/30 hover:shadow-2xl dark:hover:bg-white/15;
+  }
+
+  /* Gradient Effects */
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:-z-10 before:rounded-xl before:bg-gradient-to-r before:from-main/50 before:via-purple-500/50 before:to-main/50 before:p-[1px];
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-main via-amber-600 to-main bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-background via-background to-main/5;
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:animate-shimmer before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
+  }
+
+  /* Floating Animation */
+  .float {
+    @apply animate-float;
+  }
+}

@@ -24,8 +24,10 @@ export const CustomButtonLink = ({
 
 export const CustomButton = ({ children }: CustomButtonProps) => {
   return (
-    <Button className="hover:bg-main-50 rounded-3xl border-4 border-main bg-main text-sky-50 hover:border-foreground">
-      {children}
+    <Button className="group relative overflow-hidden rounded-3xl border-2 border-main bg-main px-6 py-2 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:border-amber-600 hover:shadow-2xl">
+      {/* Shimmer effect */}
+      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+      <span className="relative z-10">{children}</span>
     </Button>
   );
 };
