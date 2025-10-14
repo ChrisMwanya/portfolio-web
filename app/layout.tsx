@@ -65,7 +65,7 @@ export default function RootLayout({
                   <ModeToggle />
                 </div>
               </Header>
-              <div className="lg:container max-sm:px-2 lg:px-96">
+              <div className="mt-20 lg:container max-sm:px-2 lg:px-96">
                 <div>
                   <div className="min-sm:h-20 relative size-full h-48 overflow-hidden bg-[url('/assets/images/fordT.webp')] bg-cover bg-center bg-no-repeat max-md:h-20">
                     {/* Overlay gradient */}
