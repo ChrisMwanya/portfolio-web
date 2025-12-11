@@ -2,6 +2,7 @@ import H2 from '@/components/ui/title-h2';
 import React from 'react';
 import Image from 'next/image';
 import { Link } from '@/components/ui/link';
+import Stacks from '@/components/stacks/stacks';
 
 const About = () => {
   return (
@@ -26,6 +27,16 @@ const About = () => {
           layout="responsive"
         />
       </div>
+
+      <div className="my-8">
+        <H2>Technologies & Outils 🛠️</H2>
+        <p className="my-4 text-muted-foreground">
+          Voici les principales technologies et outils que j&apos;utilise dans
+          mes projets :
+        </p>
+        <Stacks className="flex flex-wrap gap-2" />
+      </div>
+
       <p>
         {`À travers différents projets, j'ai eu l'opportunité de toucher à un large éventail de technologies, de React et Express.js à AdonisJS, Strapi et WordPress. Que ce soit pour concevoir des interfaces ultra-réactives, bâtir des API solides ou créer des systèmes de gestion de contenu sur-mesure, mon objectif reste toujours le même : offrir des solutions performantes, intuitives et accessibles.`}
       </p>
