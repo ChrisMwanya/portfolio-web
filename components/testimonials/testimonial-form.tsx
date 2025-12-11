@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useToast } from '@/hooks/use-toast';
 
 interface TestimonialFormProps {
   onSuccess?: () => void;
@@ -22,11 +23,22 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    // Validate rating
+    if (formData.rating < 1) {
+      toast({
+        title: 'Évaluation requise',
+        description: 'Veuillez sélectionner une note entre 1 et 5 étoiles.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -44,7 +56,15 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
         throw new Error(data.error || 'Failed to submit testimonial');
       }
 
-      setSuccess(true);
+      // Show success toast
+      toast({
+        title: 'Témoignage envoyé ! 🎉',
+        description:
+          'Merci pour votre témoignage. Il sera affiché sur la page après validation par notre équipe.',
+        variant: 'default',
+      });
+
+      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -59,6 +79,14 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
+      toast({
+        title: 'Erreur',
+        description:
+          err instanceof Error
+            ? err.message
+            : "Une erreur est survenue lors de l'envoi",
+        variant: 'destructive',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -67,29 +95,6 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
   const handleRatingClick = (rating: number) => {
     setFormData({ ...formData, rating });
   };
-
-  if (success) {
-    return (
-      <div className="rounded-lg border border-main/20 bg-main/5 p-6 text-center">
-        <div className="mb-4 flex justify-center">
-          <span className="icon-[mdi--check-circle] text-6xl text-main" />
-        </div>
-        <h3 className="mb-2 text-xl font-semibold text-main">
-          Merci pour votre témoignage ! 🎉
-        </h3>
-        <p className="text-muted-foreground">
-          Votre témoignage a été soumis avec succès et sera publié après
-          validation.
-        </p>
-        <button
-          onClick={() => setSuccess(false)}
-          className="mt-4 text-main hover:underline"
-        >
-          Soumettre un autre témoignage
-        </button>
-      </div>
-    );
-  }
 
   return (
     <form
