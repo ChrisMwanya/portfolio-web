@@ -1,10 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, MessageCircle, Plus, X } from 'lucide-react';
+import { Mail, MessageCircle, Phone, X } from 'lucide-react';
 import type { FloatingCTAProps } from './type';
 
-export function FloatingCTA({ email, whatsappNumber }: FloatingCTAProps) {
+export function FloatingCTA({
+  email,
+  whatsappNumber,
+  phoneNumber,
+}: FloatingCTAProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleWhatsApp = () => {
@@ -14,6 +18,11 @@ export function FloatingCTA({ email, whatsappNumber }: FloatingCTAProps) {
 
   const handleEmail = () => {
     window.location.href = `mailto:${email}`;
+    setIsOpen(false);
+  };
+
+  const handlePhone = () => {
+    window.location.href = `tel:${phoneNumber}`;
     setIsOpen(false);
   };
 
@@ -27,6 +36,16 @@ export function FloatingCTA({ email, whatsappNumber }: FloatingCTAProps) {
             : 'pointer-events-none translate-y-4 opacity-0'
         }`}
       >
+        {/* Phone Button */}
+        <button
+          onClick={handlePhone}
+          className="flex items-center gap-3 rounded-full bg-purple-500 px-4 py-3 text-white shadow-lg transition-all hover:scale-105 hover:bg-purple-600"
+          aria-label="Appeler"
+        >
+          <Phone className="h-5 w-5" />
+          <span className="font-medium">Appeler</span>
+        </button>
+
         {/* WhatsApp Button */}
         <button
           onClick={handleWhatsApp}
@@ -51,7 +70,7 @@ export function FloatingCTA({ email, whatsappNumber }: FloatingCTAProps) {
       {/* Main CTA Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex h-14 w-14 items-center justify-center rounded-full shadow-xl transition-all hover:scale-110 ${
+        className={`group flex items-center gap-2 rounded-full px-5 py-3 shadow-xl transition-all hover:scale-105 ${
           isOpen
             ? 'bg-red-500 hover:bg-red-600'
             : 'bg-primary hover:bg-primary/90'
@@ -59,9 +78,17 @@ export function FloatingCTA({ email, whatsappNumber }: FloatingCTAProps) {
         aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu de contact'}
       >
         {isOpen ? (
-          <X className="h-6 w-6 text-white" />
+          <>
+            <X className="h-5 w-5 text-white" />
+            <span className="text-sm font-medium text-white">Fermer</span>
+          </>
         ) : (
-          <Plus className="h-6 w-6 text-background" />
+          <>
+            <MessageCircle className="h-5 w-5 text-background" />
+            <span className="text-sm font-semibold text-background">
+              Me contacter
+            </span>
+          </>
         )}
       </button>
     </div>

@@ -8,6 +8,7 @@ export async function FloatingCTAServer() {
     <FloatingCTA
       email={contactData.email}
       whatsappNumber={contactData.whatsapp}
+      phoneNumber={contactData.whatsapp}
     />
   );
 }

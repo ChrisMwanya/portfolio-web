@@ -10,4 +10,5 @@ export interface ContactData {
 export interface FloatingCTAProps {
   readonly email: string;
   readonly whatsappNumber: string;
+  readonly phoneNumber: string;
 }
