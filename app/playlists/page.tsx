@@ -39,15 +39,17 @@ export default function PlaylistsPage() {
           {playlists.map((playlist, index) => {
             const platformConfig = {
               spotify: {
-                color: 'from-green-400 to-green-600',
-                hoverColor: 'hover:from-green-500 hover:to-green-700',
-                icon: '🎵',
+                color: 'bg-gray-800',
+                hoverColor:
+                  'hover:bg-gray-900 dark:bg-gray-900 dark:hover:bg-gray-950',
+                icon: 'icon-[mdi--spotify]',
                 label: 'Spotify',
               },
               youtube: {
-                color: 'from-red-500 to-red-700',
-                hoverColor: 'hover:from-red-600 hover:to-red-800',
-                icon: '▶️',
+                color: 'bg-gray-800',
+                hoverColor:
+                  'hover:bg-gray-900 dark:bg-gray-900 dark:hover:bg-gray-950',
+                icon: 'icon-[mdi--youtube]',
                 label: 'YouTube',
               },
             };
@@ -65,11 +67,14 @@ export default function PlaylistsPage() {
               >
                 {/* Card Header */}
                 <div
-                  className={`bg-gradient-to-r ${config.color} p-6 transition-all duration-300 ${config.hoverColor}`}
+                  className={`${config.color} p-6 transition-all duration-300 ${config.hoverColor}`}
                 >
                   <div className="mb-2 flex items-center justify-between">
-                    <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                      {config.icon} {config.label}
+                    <span className="rounded-full bg-white/30 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                      <span
+                        className={`${config.icon} mr-1 text-sm text-white`}
+                      />
+                      {config.label}
                     </span>
                     <div className="shimmer h-2 w-2 animate-pulse rounded-full bg-white/50" />
                   </div>
