@@ -22,12 +22,16 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
           {item.href ? (
             <Link
               href={item.href}
-              className="text-muted-foreground transition-colors hover:text-main"
+              className="flex items-center gap-1 text-muted-foreground transition-colors hover:text-main"
             >
+              {item.icon && <span className={`${item.icon} h-4 w-4`} />}
               {item.label}
             </Link>
           ) : (
-            <span className="font-semibold text-main">{item.label}</span>
+            <span className="flex items-center gap-1 font-semibold text-main">
+              {item.icon && <span className={`${item.icon} h-4 w-4`} />}
+              {item.label}
+            </span>
           )}
         </React.Fragment>
       ))}

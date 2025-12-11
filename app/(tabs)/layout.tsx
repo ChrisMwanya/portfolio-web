@@ -19,7 +19,7 @@ import Footer from '@/components/footer/footer';
 export const metadata: Metadata = {
   title: 'Chris Mwanya',
   description:
-    "Développeur Fullstack. Formateur. Humain. J'aime partager mes connaissances",
+    "Développeur Fullstack • Formateur • IA Enthusiast. Passionné par le code, la pédagogie et l'innovation technologique",
 };
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
@@ -100,12 +100,20 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
                   ✨
                 </p>
                 <p className="my-1">
-                  Développeur Fullstack. Formateur. Humain. Aime partager ses
-                  connaissances <br />
+                  <Link href="/roles/developpeur-fullstack">
+                    Développeur Fullstack
+                  </Link>{' '}
+                  • <Link href="/roles/formateur">Formateur</Link> •{' '}
+                  <Link href="/roles/ia-enthusiast">IA Enthusiast</Link> •
+                  Étudiant en Cybersécurité
+                  <br />
+                  Passionné par le code, la pédagogie et l&apos;innovation
+                  technologique
+                  <br />
                   Actuellement formateur développeur chez{' '}
                   <Link href="https://www.kadea.academy/" target="_blank">
                     kadea academy
-                  </Link>
+                  </Link>{' '}
                 </p>{' '}
                 <div className="my-4 flex flex-wrap items-center gap-6">
                   <ListItemIcon iconClassName="icon-[ic--round-home-work]">
