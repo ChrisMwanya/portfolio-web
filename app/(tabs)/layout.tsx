@@ -11,7 +11,7 @@ import { Link } from '@/components/ui/link';
 import { CustomButtonLink } from '@/components/custom-button/custom-button';
 import ListItemIcon from '@/components/list-item-icon/list-item-icon';
 import LinkIcon from '@/components/icon-link/link-icon';
-import Stacks from '@/components/stacks/stacks';
+
 import { Navbar } from '@/components/navbar/navbar';
 import { menuItems } from '@/config/menu';
 import Footer from '@/components/footer/footer';
@@ -107,9 +107,6 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
                     kadea academy
                   </Link>
                 </p>{' '}
-                <div>
-                  <Stacks className="flex flex-wrap gap-2" />
-                </div>
                 <div className="my-4 flex flex-wrap items-center gap-6">
                   <ListItemIcon iconClassName="icon-[ic--round-home-work]">
                     Disponible
