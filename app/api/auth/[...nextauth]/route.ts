@@ -14,8 +14,8 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         // Simple authentication for admin
-        const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
-        const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+        const adminEmail = process.env.ADMIN_EMAIL;
+        const adminPassword = process.env.ADMIN_PASSWORD;
 
         if (
           credentials?.email === adminEmail &&
