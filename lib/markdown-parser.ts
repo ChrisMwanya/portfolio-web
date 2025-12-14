@@ -122,6 +122,9 @@ interface Project {
   title: string;
   description?: string;
   link?: string;
+  image?: string;
+  imageAlt?: string;
+  technos?: string[];
   created_at?: string;
   updated_at?: string;
   published_at?: string;
@@ -150,8 +153,19 @@ export const getAllProjects = (): Project[] => {
       if (line.startsWith('**Description**')) {
         currentProject.description = line.split(': ')[1]?.trim();
       } else if (line.startsWith('**Lien**')) {
-        const match = line.match(/\[(.*?)\]\((.*?)\)/);
-        currentProject.link = match ? match[2] : '';
+        const linkMatch = /\[(.*?)\]\((.*?)\)/.exec(line);
+        currentProject.link = linkMatch ? linkMatch[2] : '';
+      } else if (line.startsWith('**Image**')) {
+        const imageMatch = /\[(.*?)\]\((.*?)\)/.exec(line);
+        if (imageMatch) {
+          currentProject.imageAlt = imageMatch[1];
+          currentProject.image = imageMatch[2];
+        }
+      } else if (line.startsWith('**Technos**')) {
+        const technosString = line.split(': ')[1]?.trim();
+        currentProject.technos = technosString
+          ? technosString.split(',').map((t) => t.trim())
+          : [];
       }
     }
   });
@@ -161,4 +175,63 @@ export const getAllProjects = (): Project[] => {
   }
 
   return projects;
+};
+
+interface Playlist {
+  id?: string;
+  title: string;
+  description?: string | null;
+  platform: 'spotify' | 'youtube';
+  embedUrl: string | null;
+}
+
+export const getAllPlaylists = (): Playlist[] => {
+  const filePath = path.join(process.cwd(), 'contents', 'playlists.md');
+
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+
+  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const lines = fileContent.split('\n').filter((line) => line.trim() !== '');
+
+  let currentPlaylist: Partial<Playlist> = {};
+  const playlists: Playlist[] = [];
+
+  const isValidPlaylist = (
+    playlist: Partial<Playlist>,
+  ): playlist is Playlist => {
+    return Boolean(playlist.embedUrl && playlist.title && playlist.platform);
+  };
+
+  lines.forEach((line) => {
+    if (line.startsWith('## ')) {
+      if (isValidPlaylist(currentPlaylist)) {
+        playlists.push(currentPlaylist);
+      }
+      currentPlaylist = {
+        id: line.replace('## ', '').trim().toLowerCase().replace(/\s+/g, '-'),
+        title: line.replace('## ', '').trim(),
+        platform: 'spotify', // Default value, will be overridden
+        embedUrl: '',
+      };
+    } else if (currentPlaylist) {
+      if (line.startsWith('**Platform**')) {
+        const platform = line.split(': ')[1]?.trim().toLowerCase();
+        if (platform === 'spotify' || platform === 'youtube') {
+          currentPlaylist.platform = platform;
+        }
+      } else if (line.startsWith('**Description**')) {
+        currentPlaylist.description = line.split(': ')[1]?.trim();
+      } else if (line.startsWith('**EmbedUrl**')) {
+        currentPlaylist.embedUrl = line.split(': ')[1]?.trim();
+      }
+    }
+  });
+
+  if (isValidPlaylist(currentPlaylist)) {
+    playlists.push(currentPlaylist);
+  }
+
+  return playlists;
 };

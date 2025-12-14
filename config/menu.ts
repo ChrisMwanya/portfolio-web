@@ -12,13 +12,12 @@ export const menuItems: MenuItemProps[] = [
   //   title: 'My Reads',
   //   href: '/blog',
   // },
-  {
-    title: 'Projets',
-    href: '/projects',
-  },
-
   // {
-  //   title: 'Guestbook',
-  //   href: '/guestbook',
+  //   title: 'Projets',
+  //   href: '/projects',
   // },
+  {
+    title: "Livre d'or",
+    href: '/guestbook',
+  },
 ];
