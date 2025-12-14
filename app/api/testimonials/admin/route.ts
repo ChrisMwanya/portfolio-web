@@ -21,7 +21,7 @@ export async function GET() {
     }
 
     // Check if user is admin
-    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+    const adminEmail = process.env.ADMIN_EMAIL;
     if (session.user.email !== adminEmail) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user is admin
-    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+    const adminEmail = process.env.ADMIN_EMAIL;
     if (session.user.email !== adminEmail) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }

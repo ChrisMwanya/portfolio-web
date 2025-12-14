@@ -18,7 +18,7 @@ export async function middleware(request: NextRequest) {
     }
 
     // Check if user is admin
-    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+    const adminEmail = process.env.ADMIN_EMAIL;
     if (token.email !== adminEmail) {
       return NextResponse.redirect(new URL('/', request.url));
     }
