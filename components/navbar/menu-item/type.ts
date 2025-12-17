@@ -3,4 +3,5 @@ export type MenuItemProps = {
   className?: string;
   isActive?: boolean;
   href: string;
+  icon?: string;
 };
