@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import {
   saveTestimonial,
   getAllApprovedTestimonials,
-} from '@/lib/testimonial-manager';
+} from '@/lib/db/testimonials';
 import type { TestimonialFormData } from '@/lib/types/testimonial';
 
 /**
@@ -11,9 +11,10 @@ import type { TestimonialFormData } from '@/lib/types/testimonial';
  */
 export async function GET() {
   try {
-    const testimonials = getAllApprovedTestimonials();
+    const testimonials = await getAllApprovedTestimonials();
     return NextResponse.json(testimonials);
   } catch (error) {
+    console.error('Error fetching testimonials:', error);
     return NextResponse.json(
       { error: 'Failed to fetch testimonials' },
       { status: 500 },
@@ -62,7 +63,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const testimonial = saveTestimonial(body);
+    const testimonial = await saveTestimonial(body);
 
     return NextResponse.json(
       {
@@ -72,6 +73,7 @@ export async function POST(request: NextRequest) {
       { status: 201 },
     );
   } catch (error) {
+    console.error('Error creating testimonial:', error);
     return NextResponse.json(
       { error: 'Failed to create testimonial' },
       { status: 500 },

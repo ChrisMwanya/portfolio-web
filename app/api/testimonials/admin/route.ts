@@ -6,7 +6,7 @@ import {
   rejectTestimonial,
   disableTestimonial,
   updateTestimonialPriority,
-} from '@/lib/testimonial-manager';
+} from '@/lib/db/testimonials';
 
 /**
  * GET /api/testimonials/admin
@@ -26,9 +26,10 @@ export async function GET() {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    const testimonials = getAllPendingTestimonials();
+    const testimonials = await getAllPendingTestimonials();
     return NextResponse.json(testimonials);
   } catch (error) {
+    console.error('Error fetching pending testimonials:', error);
     return NextResponse.json(
       { error: 'Failed to fetch pending testimonials' },
       { status: 500 },
@@ -65,7 +66,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === 'approve') {
-      const success = approveTestimonial(id);
+      const success = await approveTestimonial(id);
       if (!success) {
         return NextResponse.json(
           { error: 'Testimonial not found' },
@@ -74,7 +75,7 @@ export async function POST(request: NextRequest) {
       }
       return NextResponse.json({ message: 'Testimonial approved' });
     } else if (action === 'reject') {
-      const success = rejectTestimonial(id);
+      const success = await rejectTestimonial(id);
       if (!success) {
         return NextResponse.json(
           { error: 'Testimonial not found' },
@@ -83,7 +84,7 @@ export async function POST(request: NextRequest) {
       }
       return NextResponse.json({ message: 'Testimonial rejected' });
     } else if (action === 'disable') {
-      const success = disableTestimonial(id);
+      const success = await disableTestimonial(id);
       if (!success) {
         return NextResponse.json(
           { error: 'Testimonial not found' },
@@ -101,7 +102,7 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const success = updateTestimonialPriority(id, priority);
+      const success = await updateTestimonialPriority(id, priority);
       if (!success) {
         return NextResponse.json(
           { error: 'Testimonial not found' },
@@ -119,6 +120,7 @@ export async function POST(request: NextRequest) {
       );
     }
   } catch (error) {
+    console.error('Error processing testimonial:', error);
     return NextResponse.json(
       { error: 'Failed to process testimonial' },
       { status: 500 },

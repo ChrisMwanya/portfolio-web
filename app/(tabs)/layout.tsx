@@ -1,9 +1,10 @@
-import React, { PropsWithChildren } from 'react';
-import { Metadata } from 'next';
+'use client';
+
+import React, { PropsWithChildren, useState } from 'react';
 import Header from '@/components/header/header';
-import Logo from '@/components/logo/logo';
+import { BurgerMenu } from '@/components/burger-menu';
+import { Sidebar } from '@/components/sidebar';
 import { ModeToggle } from '@/components/mode-toggle';
-import NextLink from 'next/link';
 import Avatar from '@/components/avatar/avatar';
 import TitleH1 from '@/components/ui/title-h1';
 import { Avatar as AvatarIcon, AvatarImage } from '@/components/ui/avatar';
@@ -16,15 +17,11 @@ import { Navbar } from '@/components/navbar/navbar';
 import { menuItems } from '@/config/menu';
 import Footer from '@/components/footer/footer';
 
-export const metadata: Metadata = {
-  title: 'Chris Mwanya',
-  description:
-    "Développeur Fullstack • Formateur • IA Enthusiast. Passionné par le code, la pédagogie et l'innovation technologique",
-};
-
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
-    <div className="relative overflow-hidden bg-[url('../public/assets/logo-black.svg')] bg-30 bg-fixed bg-[80%_100%] bg-no-repeat dark:bg-[url('../public/assets/logo-white.svg')] max-md:bg-[100%_100%] max-sm:bg-50">
+    <div className="relative overflow-hidden bg-[url('/assets/logo-black.svg')] bg-30 bg-fixed bg-[80%_100%] bg-no-repeat dark:bg-[url('/assets/logo-white.svg')] max-md:bg-[100%_100%] max-sm:bg-50">
       {/* Animated gradient background */}
       <div className="absolute inset-0 animate-gradient-xy bg-gradient-to-br from-main/5 via-purple-500/5 to-amber-500/5 opacity-50" />
       <div className="absolute inset-0 bg-background opacity-95" />
@@ -36,15 +33,15 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
         style={{ animationDelay: '2s' }}
       />
 
+      {/* Sidebar */}
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+
       <div className="relative z-0 p-0">
         <Header>
-          <NextLink href="/">
-            <Logo
-              color={{ primary: '', secondary: 'text-main' }}
-              height="3rem"
-              width="3rem"
-            />
-          </NextLink>
+          <BurgerMenu
+            isOpen={isSidebarOpen}
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          />
           <div className="flex items-center gap-3">
             <ModeToggle />
           </div>
