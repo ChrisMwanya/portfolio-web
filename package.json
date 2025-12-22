@@ -13,7 +13,8 @@
     "prepare": "husky ",
     "test": "jest",
     "test:watch": "jest --watch",
-    "generate:type": "npx graphql-codegen --config codegen.ts"
+    "generate:type": "npx graphql-codegen --config codegen.ts",
+    "db:migrate": "npx tsx scripts/migrate-testimonials.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.11.5",
@@ -31,8 +32,10 @@
     "@types/luxon": "^3.4.2",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
+    "@vercel/postgres": "^0.10.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "graphql": "^16.9.0",
