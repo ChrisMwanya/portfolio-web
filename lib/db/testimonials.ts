@@ -128,7 +128,7 @@ export const approveTestimonial = async (id: string): Promise<boolean> => {
       RETURNING id
     `;
 
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   } catch (error) {
     console.error('Error approving testimonial:', error);
     return false;
@@ -146,7 +146,7 @@ export const rejectTestimonial = async (id: string): Promise<boolean> => {
       RETURNING id
     `;
 
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   } catch (error) {
     console.error('Error rejecting testimonial:', error);
     return false;
@@ -165,7 +165,7 @@ export const disableTestimonial = async (id: string): Promise<boolean> => {
       RETURNING id
     `;
 
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   } catch (error) {
     console.error('Error disabling testimonial:', error);
     return false;
@@ -187,7 +187,7 @@ export const updateTestimonialPriority = async (
       RETURNING id
     `;
 
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   } catch (error) {
     console.error('Error updating testimonial priority:', error);
     return false;
