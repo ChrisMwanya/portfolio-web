@@ -37,4 +37,9 @@ export const sidebarMenuItems: MenuItemProps[] = [
     href: '/playlists',
     icon: 'icon-[mdi--music]',
   },
+  {
+    title: 'Blog Personnel',
+    href: '/roles/blog',
+    icon: 'icon-[mdi--post-outline]',
+  },
 ];

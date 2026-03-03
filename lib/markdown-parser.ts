@@ -235,3 +235,64 @@ export const getAllPlaylists = (): Playlist[] => {
 
   return playlists;
 };
+
+export interface Blog {
+  title: string;
+  description: string;
+  date: string;
+  tags: string[];
+  image: string;
+  slug: string;
+  content: string;
+}
+
+export const getAllBlogs = (): Blog[] => {
+  const blogsDirectory = path.join(process.cwd(), 'contents', 'blogs');
+
+  if (!fs.existsSync(blogsDirectory)) {
+    return [];
+  }
+
+  const fileNames = fs.readdirSync(blogsDirectory);
+  const allBlogsData = fileNames
+    .filter((fileName) => fileName.endsWith('.md'))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, '');
+      const fullPath = path.join(blogsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
+
+      return {
+        slug,
+        title: data.title || '',
+        description: data.description || '',
+        date: data.date || '',
+        tags: data.tags || [],
+        image: data.image || '',
+        content,
+      } as Blog;
+    });
+
+  return allBlogsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+};
+
+export const getBlogBySlug = (slug: string): Blog | null => {
+  const fullPath = path.join(process.cwd(), 'contents', 'blogs', `${slug}.md`);
+
+  if (!fs.existsSync(fullPath)) {
+    return null;
+  }
+
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+
+  return {
+    slug,
+    title: data.title || '',
+    description: data.description || '',
+    date: data.date || '',
+    tags: data.tags || [],
+    image: data.image || '',
+    content,
+  } as Blog;
+};

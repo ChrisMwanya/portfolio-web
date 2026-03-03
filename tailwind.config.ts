@@ -119,7 +119,11 @@ const config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), addDynamicIconSelectors()],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+    addDynamicIconSelectors(),
+  ],
 } satisfies Config;
 
 export default config;
