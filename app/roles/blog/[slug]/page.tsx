@@ -61,7 +61,7 @@ const BlogDetail = async ({ params }: BlogDetailProps) => {
         <Breadcrumb
           items={[
             {
-              label: 'Blog Personnel',
+              label: 'Blogs',
               icon: 'icon-[mdi--post-outline]',
               href: '/roles/blog',
             },

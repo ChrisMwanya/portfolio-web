@@ -38,7 +38,7 @@ export const sidebarMenuItems: MenuItemProps[] = [
     icon: 'icon-[mdi--music]',
   },
   {
-    title: 'Blog Personnel',
+    title: 'Blogs',
     href: '/roles/blog',
     icon: 'icon-[mdi--post-outline]',
   },

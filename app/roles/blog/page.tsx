@@ -22,9 +22,7 @@ const Blog = async () => {
 
       <div className="relative mx-auto max-w-7xl px-4 py-12">
         <Breadcrumb
-          items={[
-            { label: 'Blog Personnel', icon: 'icon-[mdi--post-outline]' },
-          ]}
+          items={[{ label: 'Blogs', icon: 'icon-[mdi--post-outline]' }]}
         />
 
         <header className="mb-12 text-center">
