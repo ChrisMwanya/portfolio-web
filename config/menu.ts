@@ -33,6 +33,11 @@ export const sidebarMenuItems: MenuItemProps[] = [
     icon: 'icon-[mdi--robot-outline]',
   },
   {
+    title: 'Blogs',
+    href: '/roles/blog',
+    icon: 'icon-[mdi--post-outline]',
+  },
+  {
     title: 'Playlists',
     href: '/playlists',
     icon: 'icon-[mdi--music]',

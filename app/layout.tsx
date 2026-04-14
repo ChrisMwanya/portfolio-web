@@ -4,6 +4,7 @@ import '@/styles/globals.css';
 import { ThemeProvider } from '@/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { FloatingCTA } from '@/components/floating-cta';
+import { Analytics } from '@vercel/analytics/next';
 
 export default function RootLayout({
   children,
@@ -20,6 +21,7 @@ export default function RootLayout({
           {children}
           <FloatingCTA />
           <Toaster />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
