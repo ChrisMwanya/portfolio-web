@@ -99,6 +99,10 @@ const config = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        'spin-slow': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -109,6 +113,7 @@ const config = {
         'shimmer': 'shimmer 3s linear infinite',
         'gradient-xy': 'gradient-xy 15s ease infinite',
         'float': 'float 3s ease-in-out infinite',
+        'spin-slow': 'spin-slow 6s linear infinite',
       },
       backgroundSize: {
         auto: 'auto',

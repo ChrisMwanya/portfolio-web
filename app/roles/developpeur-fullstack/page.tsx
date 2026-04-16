@@ -95,25 +95,22 @@ export default function DeveloppeurFullstackPage() {
               (
                 { title, description, link, image, imageAlt, technos },
                 index,
-              ) => {
-                const staggerClass = `stagger-${Math.min(index + 1, 5)}`;
-                return (
-                  <div
-                    key={title ?? undefined}
-                    className={`animate-fade-in-up ${staggerClass}`}
-                    style={{ animationDelay: `${300 + index * 100}ms` }}
-                  >
-                    <ProjectComponent
-                      title={title ?? null}
-                      description={description ?? null}
-                      link={link ?? null}
-                      image={image}
-                      imageAlt={imageAlt}
-                      technos={technos}
-                    />
-                  </div>
-                );
-              },
+              ) => (
+                <div
+                  key={title ?? index}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${300 + index * 100}ms` }}
+                >
+                  <ProjectComponent
+                    title={title ?? null}
+                    description={description ?? null}
+                    link={link ?? null}
+                    image={image}
+                    imageAlt={imageAlt}
+                    technos={technos}
+                  />
+                </div>
+              ),
             )}
           </div>
         </section>

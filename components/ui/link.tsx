@@ -2,10 +2,11 @@ import React from 'react';
 
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 
-interface LinkProps extends NextLinkProps {
-  // Add any additional props or customizations here
-  children: React.ReactElement | string;
+interface LinkProps extends Omit<NextLinkProps, 'href'> {
+  href: string | object;
+  children: React.ReactNode;
   target?: string;
+  className?: string; // ajout de className qui manquait parfois pour le typage NextLink
 }
 
 export const Link: React.FC<LinkProps> = ({

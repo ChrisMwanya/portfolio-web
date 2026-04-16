@@ -1,7 +1,15 @@
+## Meet & Grow
+
+**Description** : Site vitrine de Meet & Grow, une ASBL qui connecte, inspire et soutient ses membres dans leur épanouissement personnel et professionnel. Développement front-end d'une interface moderne avec animations et sections dynamiques.
+**Lien** : [Meet & Grow](https://meetandgrowasbl.org/)
+**Technos** : ReactJS, Nextjs, TailwindCSS
+
+---
+
 ## OCATE
 
 **Description** : Plateforme interactive dédiée à l’accès à l’énergie en RDC, permettant de visualiser et d’analyser les données énergétiques nationales. J’y ai contribué au développement front-end et à l’intégration des données issues du back-end Strapi.
-**Lien** : [Ocate](https://congoenergie.ocate.org/)
+**Lien** : [Ocate](https://congoenergie.ocate.org/fr)
 **Image** : [Capture d'écran de Ocate](https://res.cloudinary.com/chrismwanya/image/upload/v1760443332/Capture_d_%C3%A9cran_du_2025-10-14_12-53-55_nf4yv6.png)
 **Technos** : ReactJS, Nextjs, Strapi, PostgreSQL, Mapbox
 

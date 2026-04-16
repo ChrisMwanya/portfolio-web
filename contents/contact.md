@@ -16,9 +16,8 @@ cmwanya@gmail.com
 ### Social Media
 
 - GitHub: https://github.com/ChrisMwanya
-- LinkedIn: https://linkedin.com/in/votre-profil
-- Twitter: @votre_compte
+- LinkedIn: https://linkedin.com/in/christianmwanya
 
 ### Location
 
-Ville, Pays
+Kinshasa, RDC
