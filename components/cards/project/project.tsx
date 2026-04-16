@@ -65,9 +65,28 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
             </div>
 
             {/* Preview content with gradient and pattern */}
-            <div className={`relative flex-1 bg-gradient-to-br ${gradient}`}>
-              {image ? (
-                // Real project screenshot if provided
+            <div
+              className={`relative flex-1 bg-gradient-to-br ${gradient} group/iframe overflow-hidden`}
+            >
+              {link && link !== '#' && !link.includes('github.com') ? (
+                // Live Web Preview using a scaled-down iframe
+                <>
+                  <div className="absolute left-0 top-0 h-[800px] w-[1024px] origin-top-left scale-[calc(100%/3.41)] transition-transform duration-700 ease-in-out group-hover/iframe:scale-[calc(100%/3.3)] md:scale-[0.293] md:group-hover/iframe:scale-[0.3]">
+                    <iframe
+                      src={link}
+                      className="h-full w-full border-none bg-white"
+                      title={`${title} live preview`}
+                      sandbox="allow-scripts allow-same-origin"
+                      loading="lazy"
+                      tabIndex={-1}
+                    />
+                  </div>
+                  {/* Overlay to catch clicks and add visual styling */}
+                  <div className="absolute inset-0 z-10 cursor-pointer bg-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </>
+              ) : image ? (
+                // Fallback to Image if no live link or if it's a github repo
                 <div className="relative h-full w-full overflow-hidden">
                   <Image
                     src={image}
@@ -75,7 +94,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
               ) : (
                 // Fallback placeholder design
@@ -89,11 +108,11 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
                     </div>
                   </div>
                   {/* Animated grid pattern */}
-                  <div className="grid-pattern absolute inset-0 opacity-10" />
+                  <div className="grid-pattern pointer-events-none absolute inset-0 opacity-10" />
                 </>
               )}
               {/* Shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
           </div>
         </div>
@@ -102,7 +121,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
         <div className="p-6">
           <div className="mb-3 flex items-start justify-between">
             <h2 className="text-xl font-semibold transition-colors group-hover:text-main">
-              {title} ✨
+              {title}
             </h2>
             {link && (
               <a

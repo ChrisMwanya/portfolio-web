@@ -17,7 +17,8 @@ const Footer = () => {
       </div>
       <div>
         <p className="text-xs text-muted-foreground">
-          Made with <span aria-label="love">❤️</span> by Chris Mwanya © 2024
+          Made with <span aria-label="love">❤️</span> by Chris Mwanya ©{' '}
+          {new Date().getFullYear()}
         </p>
       </div>
     </footer>

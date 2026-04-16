@@ -112,6 +112,14 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
                     kadea academy
                   </Link>{' '}
                 </p>{' '}
+                <div className="my-6 animate-fade-in-up">
+                  <Link href="/roles/developpeur-fullstack">
+                    <p className="flex items-center gap-2">
+                      <span className="icon-[ph--eye-bold] text-xl" />
+                      Voir mes réalisations
+                    </p>
+                  </Link>
+                </div>
                 <div className="my-4 flex flex-wrap items-center gap-6">
                   <ListItemIcon iconClassName="icon-[ic--round-home-work]">
                     Disponible

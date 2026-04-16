@@ -39,30 +39,30 @@ export function FloatingCTA({
         {/* Phone Button */}
         <button
           onClick={handlePhone}
-          className="flex items-center gap-3 rounded-full bg-purple-500 px-4 py-3 text-white shadow-lg transition-all hover:scale-105 hover:bg-purple-600"
+          className="group flex items-center gap-3 rounded-full border border-main/20 bg-background/80 px-4 py-3 text-foreground shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-main hover:bg-main/5 hover:text-main"
           aria-label="Appeler"
         >
-          <Phone className="h-5 w-5" />
+          <Phone className="h-5 w-5 text-main transition-transform group-hover:scale-110" />
           <span className="font-medium">Appeler</span>
         </button>
 
         {/* WhatsApp Button */}
         <button
           onClick={handleWhatsApp}
-          className="flex items-center gap-3 rounded-full bg-green-500 px-4 py-3 text-white shadow-lg transition-all hover:scale-105 hover:bg-green-600"
+          className="group flex items-center gap-3 rounded-full border border-main/20 bg-background/80 px-4 py-3 text-foreground shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-main hover:bg-main/5 hover:text-main"
           aria-label="Contacter via WhatsApp"
         >
-          <MessageCircle className="h-5 w-5" />
+          <MessageCircle className="h-5 w-5 text-main transition-transform group-hover:scale-110" />
           <span className="font-medium">WhatsApp</span>
         </button>
 
         {/* Email Button */}
         <button
           onClick={handleEmail}
-          className="flex items-center gap-3 rounded-full bg-blue-500 px-4 py-3 text-white shadow-lg transition-all hover:scale-105 hover:bg-blue-600"
+          className="group flex items-center gap-3 rounded-full border border-main/20 bg-background/80 px-4 py-3 text-foreground shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-main hover:bg-main/5 hover:text-main"
           aria-label="Contacter par email"
         >
-          <Mail className="h-5 w-5" />
+          <Mail className="h-5 w-5 text-main transition-transform group-hover:scale-110" />
           <span className="font-medium">Email</span>
         </button>
       </div>
@@ -70,17 +70,17 @@ export function FloatingCTA({
       {/* Main CTA Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`group flex items-center gap-2 rounded-full px-5 py-3 shadow-xl transition-all hover:scale-105 ${
+        className={`group flex items-center gap-2 rounded-full px-5 py-3 shadow-lg transition-all duration-300 hover:scale-105 ${
           isOpen
-            ? 'bg-red-500 hover:bg-red-600'
-            : 'bg-primary hover:bg-primary/90'
+            ? 'border border-main/30 bg-background/80 backdrop-blur-md hover:border-main hover:bg-main/10'
+            : 'bg-primary hover:bg-primary/90 hover:shadow-2xl'
         }`}
         aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu de contact'}
       >
         {isOpen ? (
           <>
-            <X className="h-5 w-5 text-white" />
-            <span className="text-sm font-medium text-white">Fermer</span>
+            <X className="h-5 w-5 text-main" />
+            <span className="text-sm font-medium text-main">Fermer</span>
           </>
         ) : (
           <>

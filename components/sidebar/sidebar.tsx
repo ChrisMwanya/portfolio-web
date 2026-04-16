@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { sidebarMenuItems } from '@/config/menu';
 import { usePathname } from 'next/navigation';
-import Logo from '@/components/logo/logo';
+import { ProfileAvatar } from '@/components/avatar';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -59,13 +59,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <div className="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-main/50 to-transparent" />
 
         <nav className="flex h-full flex-col px-6 py-20">
-          {/* Logo */}
+          {/* Profile Photo */}
           <div className="mb-8 flex justify-center">
-            <Logo
-              color={{ primary: '', secondary: 'text-main' }}
-              height="6rem"
-              width="6rem"
-            />
+            <ProfileAvatar className="h-20 w-20" />
           </div>
 
           <div className="mb-8">
@@ -131,7 +127,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           <div className="mt-auto border-t border-white/10 pt-6">
             <p className="text-sm text-muted-foreground">Chris Mwanya</p>
             <p className="mt-1 text-xs text-muted-foreground">
-              © 2024 Tous droits réservés
+              © {new Date().getFullYear()} Tous droits réservés
             </p>
           </div>
         </nav>

@@ -9,12 +9,12 @@ export async function getContactData(): Promise<ContactData> {
   const { content } = matter(fileContent);
 
   // Parse le contenu Markdown pour extraire les informations
-  const emailMatch = content.match(/### Email\n(.+)/);
-  const whatsappMatch = content.match(/### WhatsApp\n(.+)/);
-  const githubMatch = content.match(/- GitHub: (.+)/);
-  const linkedinMatch = content.match(/- LinkedIn: (.+)/);
-  const twitterMatch = content.match(/- Twitter: (.+)/);
-  const locationMatch = content.match(/### Location\n(.+)/);
+  const emailMatch = content.match(/### Email\s+([^\n]+)/);
+  const whatsappMatch = content.match(/### WhatsApp\s+([^\n]+)/);
+  const githubMatch = content.match(/- GitHub:\s+(.+)/);
+  const linkedinMatch = content.match(/- LinkedIn:\s+(.+)/);
+  const twitterMatch = content.match(/- Twitter:\s+(.+)/);
+  const locationMatch = content.match(/### Location\s+([^\n]+)/);
 
   return {
     email: emailMatch ? emailMatch[1].trim() : '',

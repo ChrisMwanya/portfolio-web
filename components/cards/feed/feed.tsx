@@ -61,7 +61,7 @@ export const Feed: React.FC<FeedType> = (feed) => {
         <div>
           <div className="flex items-center">
             <h3 className="text-lg font-semibold transition-colors group-hover:text-main">
-              {feed?.content?.name} ✨
+              {feed?.content?.name}
             </h3>
             <Dot
               fontWeight={900}
