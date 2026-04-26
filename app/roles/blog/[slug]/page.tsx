@@ -9,9 +9,9 @@ import { getBlogBySlug, getAllBlogs } from '@/lib/markdown-parser';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 interface BlogDetailProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -24,7 +24,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: BlogDetailProps): Promise<Metadata> {
-  const blog = getBlogBySlug(params.slug);
+  const { slug } = await params;
+  const blog = getBlogBySlug(slug);
   if (!blog) return { title: 'Article non trouvé' };
 
   return {
@@ -34,7 +35,8 @@ export async function generateMetadata({
 }
 
 const BlogDetail = async ({ params }: BlogDetailProps) => {
-  const blog = getBlogBySlug(params.slug);
+  const { slug } = await params;
+  const blog = getBlogBySlug(slug);
 
   if (!blog) {
     notFound();
