@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { FloatingCTA } from '@/components/floating-cta';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function RootLayout({
   children,
@@ -22,6 +23,7 @@ export default function RootLayout({
           <FloatingCTA />
           <Toaster />
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
