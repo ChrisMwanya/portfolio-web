@@ -16,6 +16,7 @@ import LinkIcon from '@/components/icon-link/link-icon';
 import { Navbar } from '@/components/navbar/navbar';
 import { menuItems } from '@/config/menu';
 import Footer from '@/components/footer/footer';
+import { AdlineVoice } from '@/components/voice/adline-voice';
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -85,6 +86,7 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
                       <AvatarImage src="/assets/images/ford-model-t.png" />
                     </AvatarIcon>
                   </div>
+                  <AdlineVoice />
                 </div>
               </TitleH1>
               <div className="my-2 animate-fade-in-up">
