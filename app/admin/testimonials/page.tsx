@@ -193,7 +193,7 @@ export default function AdminTestimonialsPage() {
               <div className="mb-4 flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   {/* Avatar */}
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-main to-amber-600 font-semibold text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-main to-neutral-600 font-semibold text-white">
                     {testimonial.name
                       .split(' ')
                       .map((n) => n[0])
@@ -222,7 +222,7 @@ export default function AdminTestimonialsPage() {
                       className={cn(
                         'h-4 w-4',
                         star <= testimonial.rating
-                          ? 'fill-amber-400 text-amber-400'
+                          ? 'fill-foreground text-foreground'
                           : 'text-gray-300 dark:text-gray-600',
                       )}
                     />
@@ -309,7 +309,7 @@ export default function AdminTestimonialsPage() {
                     <button
                       onClick={() => handleAction(testimonial.id, 'disable')}
                       disabled={processingId === testimonial.id}
-                      className="flex items-center gap-2 rounded-md bg-orange-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-700 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex items-center gap-2 rounded-md bg-neutral-700 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {processingId === testimonial.id ? (
                         <Loader2 className="h-4 w-4 animate-spin" />

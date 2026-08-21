@@ -50,12 +50,12 @@ const BlogDetail = async ({ params }: BlogDetailProps) => {
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-main/5 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-main/10">
+    <div className="min-h-screen bg-gradient-to-br from-main/5 via-white to-neutral-100 dark:from-gray-950 dark:via-gray-900 dark:to-main/10">
       {/* Animated background elements */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -left-1/4 top-0 h-96 w-96 animate-float rounded-full bg-gradient-to-r from-main/20 to-purple-500/20 blur-3xl" />
-        <div className="absolute -right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-l from-purple-500/20 to-blue-500/20 blur-3xl [animation-delay:2s]" />
-        <div className="absolute bottom-0 left-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-t from-blue-500/20 to-main/20 blur-3xl [animation-delay:4s]" />
+        <div className="absolute -left-1/4 top-0 h-96 w-96 animate-float rounded-full bg-gradient-to-r from-main/20 to-neutral-500/20 blur-3xl" />
+        <div className="absolute -right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-l from-neutral-500/20 to-neutral-700/20 blur-3xl [animation-delay:2s]" />
+        <div className="absolute bottom-0 left-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-t from-neutral-700/20 to-main/20 blur-3xl [animation-delay:4s]" />
       </div>
 
       <div className="relative mx-auto max-w-5xl px-4 py-12">
@@ -77,7 +77,7 @@ const BlogDetail = async ({ params }: BlogDetailProps) => {
             {blog.tags?.map((tag) => (
               <span
                 key={tag}
-                className="flex items-center gap-1 rounded-full bg-main/10 px-3 py-1 text-xs font-semibold text-main dark:bg-main/20 dark:text-amber-400"
+                className="flex items-center gap-1 rounded-full bg-main/10 px-3 py-1 text-xs font-semibold text-main dark:bg-main/20 dark:text-neutral-300"
               >
                 <Tag size={12} />
                 {tag}
@@ -85,7 +85,7 @@ const BlogDetail = async ({ params }: BlogDetailProps) => {
             ))}
           </div>
 
-          <h1 className="mb-6 animate-fade-in-up bg-gradient-to-r from-main via-purple-600 to-main bg-clip-text text-4xl font-black text-transparent md:text-6xl">
+          <h1 className="mb-6 animate-fade-in-up bg-gradient-to-r from-main via-neutral-600 to-main bg-clip-text text-4xl font-black text-transparent md:text-6xl">
             {blog.title}
           </h1>
 
@@ -108,7 +108,7 @@ const BlogDetail = async ({ params }: BlogDetailProps) => {
               src={blog.image}
               alt={blog.title}
               fill
-              className="object-cover"
+              className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />

@@ -20,7 +20,7 @@ export const ProfileAvatar = ({ className }: { className?: string }) => {
     <Profile className={className}>
       <AvatarImage
         src={'/assets/images/profil.webp'}
-        className="object-cover"
+        className="object-cover grayscale transition-all duration-500 hover:grayscale-0"
         sizes="lg"
       />
       <AvatarFallback>CM</AvatarFallback>

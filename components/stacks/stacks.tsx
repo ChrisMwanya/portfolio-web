@@ -31,7 +31,7 @@ const Stacks = ({ className }: StacksProps) => {
             <HoverCardTrigger>
               <Button
                 variant="link"
-                className="group relative overflow-hidden rounded-full border border-main/20 bg-main/5 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-main/40 hover:bg-main/10 hover:shadow-lg dark:text-amber-400"
+                className="group relative overflow-hidden rounded-full border border-main/20 bg-main/5 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-main/40 hover:bg-main/10 hover:shadow-lg dark:text-neutral-300"
               >
                 <span className="relative z-10">{name}</span>
                 {/* Shimmer effect */}

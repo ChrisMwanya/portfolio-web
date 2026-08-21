@@ -11,14 +11,14 @@ export const PlaylistCard: React.FC<PlaylistType> = ({
   const platformConfig = {
     spotify: {
       icon: Music,
-      color: 'text-green-500',
-      gradient: 'from-green-500/20 to-emerald-500/20',
+      color: 'text-neutral-700 dark:text-neutral-300',
+      gradient: 'from-neutral-500/20 to-neutral-700/20',
       name: 'Spotify',
     },
     youtube: {
       icon: Youtube,
-      color: 'text-red-500',
-      gradient: 'from-red-500/20 to-rose-500/20',
+      color: 'text-neutral-700 dark:text-neutral-300',
+      gradient: 'from-neutral-400/20 to-neutral-600/20',
       name: 'YouTube',
     },
   };
@@ -29,7 +29,7 @@ export const PlaylistCard: React.FC<PlaylistType> = ({
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/60 shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:bg-white/70 hover:shadow-2xl dark:border-white/10 dark:bg-gray-900/60 dark:hover:bg-gray-900/70">
       {/* Gradient glow effect */}
-      <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-main/20 via-purple-500/20 to-main/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-main/20 via-neutral-500/20 to-main/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
 
       {/* Platform badge */}
       <div className="absolute right-4 top-4 z-10 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 backdrop-blur-sm dark:bg-gray-900/90">

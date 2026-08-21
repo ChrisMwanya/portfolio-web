@@ -20,11 +20,11 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
 }) => {
   // Generate a gradient based on project title (for visual variety)
   const gradients = [
-    'from-blue-500/20 to-purple-500/20',
-    'from-green-500/20 to-teal-500/20',
-    'from-orange-500/20 to-red-500/20',
-    'from-pink-500/20 to-rose-500/20',
-    'from-indigo-500/20 to-blue-500/20',
+    'from-neutral-400/20 to-neutral-700/20',
+    'from-neutral-500/20 to-neutral-800/20',
+    'from-neutral-300/20 to-neutral-600/20',
+    'from-neutral-600/20 to-neutral-900/20',
+    'from-neutral-400/20 to-neutral-700/20',
   ];
   const gradientIndex = (title?.length || 0) % gradients.length;
   const gradient = gradients[gradientIndex];
@@ -44,19 +44,19 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
   return (
     <div className="group relative mb-6 overflow-hidden rounded-2xl border border-white/20 bg-white/60 shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:bg-white/70 hover:shadow-2xl dark:border-white/10 dark:bg-gray-900/60 dark:hover:bg-gray-900/70">
       {/* Gradient border effect on hover */}
-      <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-main/20 via-purple-500/20 to-main/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-main/20 via-neutral-500/20 to-main/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
 
       <div className="grid gap-0 md:grid-cols-[300px_1fr]">
         {/* Preview Section */}
-        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-main/10 via-purple-500/10 to-transparent md:h-auto">
+        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-main/10 via-neutral-500/10 to-transparent md:h-auto">
           {/* Mockup browser window */}
           <div className="absolute inset-0 flex flex-col">
             {/* Browser header */}
             <div className="flex items-center gap-2 border-b border-white/20 bg-white/30 px-4 py-2 backdrop-blur-sm dark:bg-gray-800/30">
               <div className="flex gap-1.5">
-                <div className="h-2.5 w-2.5 rounded-full bg-red-500" />
-                <div className="h-2.5 w-2.5 rounded-full bg-yellow-500" />
-                <div className="h-2.5 w-2.5 rounded-full bg-green-500" />
+                <div className="h-2.5 w-2.5 rounded-full bg-neutral-400" />
+                <div className="h-2.5 w-2.5 rounded-full bg-neutral-500" />
+                <div className="h-2.5 w-2.5 rounded-full bg-neutral-600" />
               </div>
               <div className="ml-2 flex-1 rounded bg-white/40 px-3 py-1 text-xs text-muted-foreground dark:bg-gray-700/40">
                 <Globe className="mr-1 inline h-3 w-3" />
@@ -71,7 +71,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
               {link && link !== '#' && !link.includes('github.com') ? (
                 // Live Web Preview using a scaled-down iframe
                 <>
-                  <div className="absolute left-0 top-0 h-[800px] w-[1024px] origin-top-left scale-[calc(100%/3.41)] transition-transform duration-700 ease-in-out group-hover/iframe:scale-[calc(100%/3.3)] md:scale-[0.293] md:group-hover/iframe:scale-[0.3]">
+                  <div className="absolute left-0 top-0 h-[800px] w-[1024px] origin-top-left scale-[calc(100%/3.41)] grayscale transition-all duration-700 ease-in-out group-hover/iframe:scale-[calc(100%/3.3)] group-hover:grayscale-0 md:scale-[0.293] md:group-hover/iframe:scale-[0.3]">
                     <iframe
                       src={link}
                       className="h-full w-full border-none bg-white"
@@ -92,7 +92,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
                     src={image}
                     alt={imageAlt || title || 'Project preview'}
                     fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover object-top grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
@@ -128,7 +128,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-amber-400"
+                className="flex items-center gap-2 rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-neutral-300"
               >
                 Voir <ExternalLink className="h-3 w-3" />
               </a>
@@ -152,7 +152,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
                   technos.map((techno, index) => (
                     <span
                       key={`${techno}-${index}`}
-                      className="group/tag relative overflow-hidden rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-amber-400"
+                      className="group/tag relative overflow-hidden rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-neutral-300"
                     >
                       <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover/tag:translate-x-full" />
                       <span className="relative z-10">{techno}</span>
@@ -163,7 +163,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({
                   technos.data?.map((techno, index) => (
                     <span
                       key={techno?.attributes?.name || index}
-                      className="group/tag relative overflow-hidden rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-amber-400"
+                      className="group/tag relative overflow-hidden rounded-full bg-main/10 px-3 py-1 text-xs font-medium text-main backdrop-blur-sm transition-all hover:scale-105 hover:bg-main/20 dark:bg-main/20 dark:text-neutral-300"
                     >
                       <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover/tag:translate-x-full" />
                       <span className="relative z-10">

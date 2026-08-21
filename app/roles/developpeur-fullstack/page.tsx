@@ -27,12 +27,12 @@ export default function DeveloppeurFullstackPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-gray-950 dark:via-gray-900 dark:to-neutral-900">
       {/* Animated background elements */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -left-1/4 top-0 h-96 w-96 animate-float rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl" />
-        <div className="absolute -right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-l from-purple-500/20 to-main/20 blur-3xl [animation-delay:2s]" />
-        <div className="absolute bottom-0 left-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-t from-main/20 to-blue-500/20 blur-3xl [animation-delay:4s]" />
+        <div className="absolute -left-1/4 top-0 h-96 w-96 animate-float rounded-full bg-gradient-to-r from-neutral-500/20 to-neutral-700/20 blur-3xl" />
+        <div className="absolute -right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-l from-neutral-700/20 to-main/20 blur-3xl [animation-delay:2s]" />
+        <div className="absolute bottom-0 left-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-t from-main/20 to-neutral-500/20 blur-3xl [animation-delay:4s]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-12">
@@ -48,7 +48,7 @@ export default function DeveloppeurFullstackPage() {
 
         {/* Header */}
         <header className="mb-12 text-center">
-          <h1 className="mb-4 animate-fade-in-up bg-gradient-to-r from-blue-600 via-main to-purple-600 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+          <h1 className="mb-4 animate-fade-in-up bg-gradient-to-r from-neutral-600 via-main to-neutral-800 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
             <span className="icon-[mdi--code-braces] mr-3" />
             Développeur Fullstack
           </h1>

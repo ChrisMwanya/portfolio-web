@@ -82,12 +82,12 @@ export default function FormateurPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-green-950">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-gray-950 dark:via-gray-900 dark:to-neutral-900">
       {/* Animated background elements */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -left-1/4 top-0 h-96 w-96 animate-float rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 blur-3xl" />
-        <div className="absolute -right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-l from-blue-500/20 to-main/20 blur-3xl [animation-delay:2s]" />
-        <div className="absolute bottom-0 left-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-t from-main/20 to-green-500/20 blur-3xl [animation-delay:4s]" />
+        <div className="absolute -left-1/4 top-0 h-96 w-96 animate-float rounded-full bg-gradient-to-r from-neutral-500/20 to-neutral-700/20 blur-3xl" />
+        <div className="absolute -right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-l from-neutral-700/20 to-main/20 blur-3xl [animation-delay:2s]" />
+        <div className="absolute bottom-0 left-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-t from-main/20 to-neutral-500/20 blur-3xl [animation-delay:4s]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-12">
@@ -98,7 +98,7 @@ export default function FormateurPage() {
 
         {/* Header */}
         <header className="mb-12 text-center">
-          <h1 className="mb-4 animate-fade-in-up bg-gradient-to-r from-green-600 via-blue-600 to-main bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+          <h1 className="mb-4 animate-fade-in-up bg-gradient-to-r from-neutral-600 via-neutral-800 to-main bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
             <span className="icon-[mdi--teach] mr-3" />
             Formateur & Coach
           </h1>
@@ -137,23 +137,23 @@ export default function FormateurPage() {
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
-              <div className="rounded-xl bg-gradient-to-br from-green-500/10 to-blue-500/10 p-6 text-center">
-                <div className="mb-2 text-3xl font-bold text-green-600 dark:text-green-400">
+              <div className="rounded-xl bg-gradient-to-br from-neutral-500/10 to-neutral-700/10 p-6 text-center">
+                <div className="mb-2 text-3xl font-bold text-foreground">
                   3+
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Années d&apos;Expérience
                 </div>
               </div>
-              <div className="rounded-xl bg-gradient-to-br from-blue-500/10 to-main/10 p-6 text-center">
-                <div className="mb-2 text-3xl font-bold text-blue-600 dark:text-blue-400">
+              <div className="rounded-xl bg-gradient-to-br from-neutral-700/10 to-main/10 p-6 text-center">
+                <div className="mb-2 text-3xl font-bold text-foreground">
                   50+
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Apprenants Formés
                 </div>
               </div>
-              <div className="rounded-xl bg-gradient-to-br from-main/10 to-purple-500/10 p-6 text-center">
+              <div className="rounded-xl bg-gradient-to-br from-main/10 to-neutral-500/10 p-6 text-center">
                 <div className="mb-2 text-3xl font-bold text-main">100%</div>
                 <div className="text-sm text-muted-foreground">Passion</div>
               </div>

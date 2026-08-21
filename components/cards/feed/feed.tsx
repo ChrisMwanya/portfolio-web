@@ -39,7 +39,7 @@ export const Feed: React.FC<FeedType> = (feed) => {
     <>
       <article className="group relative mb-6 grid animate-fade-in grid-cols-[1fr_10fr] gap-x-2 gap-y-4 rounded-xl border border-white/20 bg-white/60 p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:bg-white/70 hover:shadow-2xl dark:border-white/10 dark:bg-gray-900/60 dark:hover:bg-gray-900/70">
         {/* Gradient glow effect on hover */}
-        <div className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-main/10 via-purple-500/10 to-main/10 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-main/10 via-neutral-500/10 to-main/10 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
 
         {feed?.content?.isPinned && (
           <>
@@ -71,11 +71,11 @@ export const Feed: React.FC<FeedType> = (feed) => {
             <p className="text-xs text-muted-foreground">{dateFormated}</p>
           </div>
           <div className="my-1">
-            <strong className="inline-block rounded-full bg-main/10 px-4 py-2 text-center text-sm font-semibold text-main backdrop-blur-sm transition-all hover:scale-105 dark:bg-main/20 dark:text-amber-400">
+            <strong className="inline-block rounded-full bg-main/10 px-4 py-2 text-center text-sm font-semibold text-main backdrop-blur-sm transition-all hover:scale-105 dark:bg-main/20 dark:text-neutral-300">
               {feed.content?.statusIcon} {feed.content?.status}
             </strong>
           </div>
-          <h2 className="mt-8 text-2xl font-bold transition-colors group-hover:bg-gradient-to-r group-hover:from-main group-hover:via-amber-600 group-hover:to-main group-hover:bg-clip-text group-hover:text-transparent">
+          <h2 className="mt-8 text-2xl font-bold transition-colors group-hover:bg-gradient-to-r group-hover:from-main group-hover:via-neutral-600 group-hover:to-main group-hover:bg-clip-text group-hover:text-transparent">
             {feed.title}
           </h2>
           <p className="mt-3 leading-relaxed">{feed.content?.content}</p>
@@ -110,7 +110,7 @@ export const Feed: React.FC<FeedType> = (feed) => {
                   src={feed.content?.image ?? ''}
                   width={500}
                   height={500}
-                  className="my-1 w-full rounded-xl object-cover transition-transform duration-500 group-hover/image:scale-105"
+                  className="my-1 w-full rounded-xl object-cover grayscale transition-all duration-500 group-hover/image:scale-105 group-hover/image:grayscale-0"
                   alt={feed.title ?? ''}
                 />
                 {/* Zoom indicator */}

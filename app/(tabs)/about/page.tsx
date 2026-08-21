@@ -22,7 +22,7 @@ const About = () => {
           }
           width={300}
           height={500}
-          className="my-1 rounded-xl object-cover"
+          className="my-1 rounded-xl object-cover grayscale transition-all duration-700 hover:grayscale-0"
           alt={''}
           layout="responsive"
         />

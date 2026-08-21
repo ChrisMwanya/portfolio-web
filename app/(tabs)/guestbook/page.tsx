@@ -42,7 +42,7 @@ const GuestBook = () => {
       {/* Header */}
       <div>
         <div className="mb-3 flex items-center justify-between">
-          <h1 className="bg-gradient-to-r from-main via-amber-600 to-main bg-clip-text text-4xl font-bold text-transparent">
+          <h1 className="bg-gradient-to-r from-main via-neutral-600 to-main bg-clip-text text-4xl font-bold text-transparent">
             Livre d&apos;Or
           </h1>
           {!showForm && (

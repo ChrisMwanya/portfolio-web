@@ -37,7 +37,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <div className="mb-4 flex items-start justify-between">
         <div className="flex items-center gap-3">
           {/* Avatar with initials */}
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-main to-amber-600 font-semibold text-white shadow-lg transition-transform group-hover:scale-105">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-main to-neutral-600 font-semibold text-white shadow-lg transition-transform group-hover:scale-105">
             {getInitials(testimonial.name)}
           </div>
 
@@ -60,7 +60,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
               className={cn(
                 'h-4 w-4',
                 star <= testimonial.rating
-                  ? 'fill-amber-400 text-amber-400'
+                  ? 'fill-foreground text-foreground'
                   : 'text-gray-300 dark:text-gray-600',
               )}
             />

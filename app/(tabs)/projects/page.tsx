@@ -9,7 +9,7 @@ const Project = () => {
     <div className="animate-fade-in">
       {/* Header section avec glassmorphism */}
       <div className="mb-8 rounded-2xl border border-white/20 bg-white/40 p-6 backdrop-blur-md dark:border-white/10 dark:bg-gray-900/40">
-        <h1 className="mb-3 bg-gradient-to-r from-main via-amber-600 to-main bg-clip-text text-3xl font-bold text-transparent">
+        <h1 className="mb-3 bg-gradient-to-r from-main via-neutral-600 to-main bg-clip-text text-3xl font-bold text-transparent">
           Mes Projets
         </h1>
         <p className="mb-2 text-muted-foreground">

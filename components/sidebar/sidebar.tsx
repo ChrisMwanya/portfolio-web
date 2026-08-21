@@ -65,10 +65,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </div>
 
           <div className="mb-8">
-            <h2 className="bg-gradient-to-r from-main via-amber-600 to-main bg-clip-text text-2xl font-bold text-transparent">
+            <h2 className="bg-gradient-to-r from-main via-neutral-600 to-main bg-clip-text text-2xl font-bold text-transparent">
               Navigation
             </h2>
-            <div className="mt-2 h-1 w-16 rounded-full bg-gradient-to-r from-main to-amber-600" />
+            <div className="mt-2 h-1 w-16 rounded-full bg-gradient-to-r from-main to-neutral-600" />
           </div>
 
           {/* Navigation Links */}
@@ -90,7 +90,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   >
                     {/* Active indicator */}
                     {isActive && (
-                      <span className="absolute left-0 h-8 w-1 rounded-r-full bg-gradient-to-b from-main to-amber-600" />
+                      <span className="absolute left-0 h-8 w-1 rounded-r-full bg-gradient-to-b from-main to-neutral-600" />
                     )}
 
                     {/* Icon */}

@@ -83,12 +83,12 @@ export default function IAEnthusiastPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-gray-950 dark:via-gray-900 dark:to-neutral-900">
       {/* Animated background elements */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -left-1/4 top-0 h-96 w-96 animate-float rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl" />
-        <div className="absolute -right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-l from-pink-500/20 to-main/20 blur-3xl [animation-delay:2s]" />
-        <div className="absolute bottom-0 left-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-t from-main/20 to-purple-500/20 blur-3xl [animation-delay:4s]" />
+        <div className="absolute -left-1/4 top-0 h-96 w-96 animate-float rounded-full bg-gradient-to-r from-neutral-500/20 to-neutral-700/20 blur-3xl" />
+        <div className="absolute -right-1/4 top-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-l from-neutral-700/20 to-main/20 blur-3xl [animation-delay:2s]" />
+        <div className="absolute bottom-0 left-1/3 h-96 w-96 animate-float rounded-full bg-gradient-to-t from-main/20 to-neutral-500/20 blur-3xl [animation-delay:4s]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-12">
@@ -101,7 +101,7 @@ export default function IAEnthusiastPage() {
 
         {/* Header */}
         <header className="mb-12 text-center">
-          <h1 className="mb-4 animate-fade-in-up bg-gradient-to-r from-purple-600 via-pink-600 to-main bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+          <h1 className="mb-4 animate-fade-in-up bg-gradient-to-r from-neutral-600 via-neutral-800 to-main bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
             <span className="icon-[mdi--robot-outline] mr-3" />
             IA Enthusiast
           </h1>

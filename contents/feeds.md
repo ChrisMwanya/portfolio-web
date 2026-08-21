@@ -7,7 +7,7 @@
 **Description**:
 
 ```
-{"date": "2022-12-13", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1726044012/portfolio_assets/kadea_office.webp", "status": "Dans mon assiette", "content": "À Kadea, j'accompagne les apprenants dans leur montée en compétences. Mon objectif ? Les aider à devenir des développeurs polyvalents, à l'aise aussi bien en frontend qu'en backend. Je leur transmets des bases solides, les bonnes pratiques et l'état d'esprit nécessaire pour relever tous les défis du monde de la tech. 💻🚀", "isPinned": true, "statusIcon": "🌴"}
+{"date": "2022-12-13", "name": "Chris", "image": "https://res.cloudinary.com/chrismwanya/image/upload/v1787335628/portfolio_assets/_CHK5616_gdnzet.jpg", "status": "Dans mon assiette", "content": "À Kadea, j'accompagne les apprenants dans leur montée en compétences. Mon objectif ? Les aider à devenir des développeurs polyvalents, à l'aise aussi bien en frontend qu'en backend. Je leur transmets des bases solides, les bonnes pratiques et l'état d'esprit nécessaire pour relever tous les défis du monde de la tech. 💻🚀", "isPinned": true, "statusIcon": "🌴"}
 ```
 
 ---

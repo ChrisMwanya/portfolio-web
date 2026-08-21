@@ -210,7 +210,7 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
                 className={cn(
                   'h-8 w-8 transition-all',
                   star <= formData.rating
-                    ? 'fill-amber-400 stroke-amber-400'
+                    ? 'fill-foreground stroke-foreground'
                     : 'fill-transparent stroke-gray-300 dark:stroke-gray-600',
                 )}
               />
