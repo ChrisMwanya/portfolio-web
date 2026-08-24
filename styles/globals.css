@@ -24,6 +24,7 @@
     --input: 0 0% 91.4%;
     --ring: 0 0% 4.9%;
     --main: 0 0% 15%;
+    --main-foreground: 0 0% 98%;
     --radius: 0.5rem;
     --chart-1: 0 0% 20%;
     --chart-2: 0 0% 35%;
@@ -53,6 +54,7 @@
     --input: 0 0% 17.5%;
     --ring: 0 0% 83.9%;
     --main: 0 0% 83%;
+    --main-foreground: 0 0% 4.9%;
     --chart-1: 0 0% 80%;
     --chart-2: 0 0% 65%;
     --chart-3: 0 0% 50%;

@@ -24,7 +24,7 @@ export const CustomButtonLink = ({
 
 export const CustomButton = ({ children }: CustomButtonProps) => {
   return (
-    <Button className="group relative overflow-hidden rounded-3xl border-2 border-main bg-main px-6 py-2 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:border-neutral-600 hover:shadow-2xl">
+    <Button className="group relative overflow-hidden rounded-3xl border-2 border-main bg-main px-6 py-2 text-main-foreground shadow-lg transition-all duration-300 hover:scale-105 hover:border-neutral-600 hover:shadow-2xl">
       {/* Shimmer effect */}
       <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
       <span className="relative z-10">{children}</span>
@@ -50,7 +50,7 @@ export const IconButton = ({ children, onClick }: IconButtonProps) => {
   return (
     <Button
       size="icon"
-      className="rounded-full hover:bg-main hover:text-neutral-50"
+      className="rounded-full hover:bg-main hover:text-main-foreground"
       onClick={onClick}
     >
       {children}

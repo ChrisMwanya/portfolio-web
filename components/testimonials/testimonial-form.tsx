@@ -246,7 +246,7 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-md bg-main px-4 py-2 font-medium text-white transition-colors hover:bg-main/90 disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-md bg-main px-4 py-2 font-medium text-main-foreground transition-colors hover:bg-main/90 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isSubmitting ? 'Envoi en cours...' : 'Soumettre le témoignage'}
       </button>

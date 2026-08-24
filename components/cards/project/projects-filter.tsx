@@ -40,7 +40,7 @@ export const ProjectsFilter: React.FC<ProjectsFilterProps> = ({ projects }) => {
               onClick={() => setActiveFilter(tech)}
               className={`relative overflow-hidden rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
                 isActive
-                  ? 'bg-main text-white shadow-lg shadow-main/30'
+                  ? 'bg-main text-main-foreground shadow-lg shadow-main/30'
                   : 'bg-white/60 text-muted-foreground hover:bg-main/10 hover:text-main dark:bg-gray-800/60 dark:hover:bg-main/20'
               }`}
             >
