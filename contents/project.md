@@ -1,3 +1,11 @@
+## Mira Makeup Studio
+
+**Description** : Site vitrine de Mira Makeup Studio & Hair, un studio de beauté à Kinshasa proposant coiffure, maquillage, onglerie et formations. Conception et développement du site avec présentation des services, des artistes et des formations, ainsi qu'une page de prise de rendez-vous et un contact direct via WhatsApp.
+**Lien** : [Mira Makeup Studio](https://www.mira-makeup.com/)
+**Technos** : ReactJS, Nextjs, TailwindCSS
+
+---
+
 ## Meet & Grow
 
 **Description** : Site vitrine de Meet & Grow, une ASBL qui connecte, inspire et soutient ses membres dans leur épanouissement personnel et professionnel. Développement front-end d'une interface moderne avec animations et sections dynamiques.
