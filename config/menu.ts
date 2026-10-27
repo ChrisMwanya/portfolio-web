@@ -38,6 +38,11 @@ export const sidebarMenuItems: MenuItemProps[] = [
     icon: 'icon-[mdi--post-outline]',
   },
   {
+    title: 'Certifications',
+    href: '/certifications',
+    icon: 'icon-[mdi--certificate-outline]',
+  },
+  {
     title: 'Playlists',
     href: '/playlists',
     icon: 'icon-[mdi--music]',

@@ -236,6 +236,86 @@ export const getAllPlaylists = (): Playlist[] => {
   return playlists;
 };
 
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  date?: string;
+  expiration?: string;
+  description?: string;
+  link?: string;
+  credentialId?: string;
+  image?: string;
+  skills?: string[];
+}
+
+export const getAllCertifications = (): Certification[] => {
+  const filePath = path.join(process.cwd(), 'contents', 'certifications.md');
+
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+
+  // Remove HTML comments (used for the template in the markdown file)
+  const fileContent = fs
+    .readFileSync(filePath, 'utf-8')
+    .replace(/<!--[\s\S]*?-->/g, '');
+  const lines = fileContent.split('\n').filter((line) => line.trim() !== '');
+
+  let currentCertification: Partial<Certification> = {};
+  const certifications: Certification[] = [];
+
+  const isValidCertification = (
+    certification: Partial<Certification>,
+  ): certification is Certification => {
+    return Boolean(certification.title && certification.issuer);
+  };
+
+  // Value after the first ": " (keeps URLs and values containing ":" intact)
+  const getValue = (line: string) =>
+    line.slice(line.indexOf(':') + 1).trim() || undefined;
+
+  lines.forEach((line) => {
+    if (line.startsWith('## ')) {
+      if (isValidCertification(currentCertification)) {
+        certifications.push(currentCertification);
+      }
+      const title = line.replace('## ', '').trim();
+      currentCertification = {
+        id: title.toLowerCase().replace(/\s+/g, '-'),
+        title,
+      };
+    } else if (line.startsWith('**Organisme**')) {
+      currentCertification.issuer = getValue(line);
+    } else if (line.startsWith('**Date**')) {
+      currentCertification.date = getValue(line);
+    } else if (line.startsWith('**Expiration**')) {
+      currentCertification.expiration = getValue(line);
+    } else if (line.startsWith('**Description**')) {
+      currentCertification.description = getValue(line);
+    } else if (line.startsWith('**Lien**')) {
+      currentCertification.link = getValue(line);
+    } else if (line.startsWith('**Identifiant**')) {
+      currentCertification.credentialId = getValue(line);
+    } else if (line.startsWith('**Image**')) {
+      currentCertification.image = getValue(line);
+    } else if (line.startsWith('**Competences**')) {
+      currentCertification.skills = getValue(line)
+        ?.split(',')
+        .map((skill) => skill.trim())
+        .filter(Boolean);
+    }
+  });
+
+  if (isValidCertification(currentCertification)) {
+    certifications.push(currentCertification);
+  }
+
+  return certifications.sort((a, b) =>
+    (a.date ?? '') < (b.date ?? '') ? 1 : -1,
+  );
+};
+
 export interface Blog {
   title: string;
   description: string;
